@@ -1,0 +1,21 @@
+:root {
+    --cor-fundo: #FCFCFC;
+    --cor-branco: #ffffff;
+    --cor-preto: #000000;
+    --cor-preto-footer: #272727;
+    --cor-verde: #3b8253;
+    --cor-amarela: #efea14;
+    --cor-amarela: #e52f28;
+    
+    /*Tamanho das fontes */
+    --f0: 10px;
+    --f1: 12px;
+    --f2: 14px;
+    --f3: 16px;
+    --f4: 25px;
+    --f5: 35px;
+    --f6: 45px;
+    --f7: 60px;
+
+
+}

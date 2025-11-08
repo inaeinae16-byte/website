@@ -1,0 +1,46 @@
+/*Vamos usar a fonte figtree e a Innter */
+
+/* Nome da fonte Black*/
+@font-face {
+    font-family: 'black';
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+    src: url('./fonts/Figtree-Black.woff') format('woff');
+}
+
+/* Nome da fonte Bold*/
+@font-face {
+    font-family: 'bold';
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+    src: url('./fonts/Figtree-Bold.woff') format('woff');
+}
+
+/* Nome da fonte ExtraBold*/
+@font-face {
+    font-family: 'ExtraBold';
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+    src: url('./fonts/Figtree-ExtraBold.woff') format('woff');
+}
+
+/* Nome da fonte Regular*/
+@font-face {
+    font-family: 'Regular';
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+    src: url('./fonts/Figtree-Regular.woff') format('woff');
+}
+
+/* Nome da fonte SemiBold*/
+@font-face {
+    font-family: 'Semibold';
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+    src: url('./fonts/Figtree-SemiBold.woff') format('woff');
+}

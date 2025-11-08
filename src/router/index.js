@@ -1,4 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
+import '../assets/main.css'
 
 import HomePage from '../views/HomePage.vue'
 import SobrePage from '../views/SobrePage.vue'

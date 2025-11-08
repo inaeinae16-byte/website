@@ -50,12 +50,9 @@ export default {
 </script>
 
 <style scoped>
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Roboto:wght@400;500&display=swap');
-
-* { font-family: 'Roboto', sans-serif; }
 
 .navbar {
-  background-color: #006400;
+  background-color: var(--cor-verde);
   padding: 0.75rem 1rem;
   box-shadow: 0 4px 12px rgba(0,0,0,0.15);
   position: sticky;
@@ -85,33 +82,13 @@ export default {
 }
 
 .nav-links a {
-  color: white;
+  color: var(--cor-branco);
   text-decoration: none;
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 600;
-  font-size: 1rem;
+  font-family: semibold;
+  font-size: var(--f3);
   letter-spacing: 0.3px;
   padding: 0.5rem 0;
   position: relative;
-  transition: color 0.3s ease;
-}
-
-.nav-links a:hover { color: #ffcc00; }
-
-.nav-links a.active {
-  color: #ffcc00;
-  font-weight: 700;
-}
-
-.nav-links a.active::after {
-  content: '';
-  position: absolute;
-  bottom: -8px;
-  left: 0;
-  width: 100%;
-  height: 3px;
-  background: #ffcc00;
-  border-radius: 2px;
 }
 
 .denuncia-btn {
