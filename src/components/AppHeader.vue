@@ -20,7 +20,7 @@
     </nav>
 
     <button class="Buttondenuncia">
-     <Svg name="denuncia" class="denuncia"/> Denuncia
+      <router-link to="/denuncia"> <Svg name="denuncia" class="denuncia"/> Denuncia </router-link>
     </button>
 
   </header>
@@ -97,7 +97,7 @@ li a {
   margin-left: auto;
   margin-right: 50px;
   border: none;
-  cursor: pointer;
+ cursor: pointer;
   padding: 10px 20px;
   border-radius: 5px;
   gap: 2px;

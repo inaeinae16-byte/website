@@ -10,27 +10,15 @@
       >
         <!-- Fundo -->
         <div class="slide-bg" :style="{ backgroundImage: `url(${slide.image})` }"></div>
-
-        <!-- Overlay -->
-        <div class="slide-overlay"></div>
-
-        <!-- Conteúdo -->
-        <div class="slide-content">
-          <h1>{{ slide.title }}</h1>
-          <p>{{ slide.subtitle }}</p>
-          <router-link to="/denuncia" class="btn-denuncia">
-            Exclamation Fazer Denúncia
-          </router-link>
-        </div>
       </div>
     </div>
 
     <!-- Botões de Navegação (INFERIORES) -->
     <button class="nav-btn prev" @click="prevSlide">
-      Previous
+      <Svg name="setaEsquerda" class="setaEsquerda" />
     </button>
     <button class="nav-btn next" @click="nextSlide">
-      Next
+      <Svg name="setaEsquerda" class="SetaDireita"/>
     </button>
 
     <!-- Indicadores -->
@@ -46,23 +34,18 @@
 </template>
 
 <script setup>
+import Svg from '../../assets/Svg/Svgs.vue'
 import { ref, onMounted, onBeforeUnmount } from 'vue'
 
-// 3 BANNERS REAIS
+//As fotos
 const slides = ref([
   {
-    title: 'Fiscalização com Integridade',
-    subtitle: 'Garantimos a qualidade e segurança dos serviços em Moçambique.',
     image: new URL('@/assets/banner01.png', import.meta.url).href
   },
   {
-    title: 'Denuncie Irregularidades',
-    subtitle: 'Sua voz faz a diferença. Denuncie anonimamente.',
     image: new URL('@/assets/banner02.png', import.meta.url).href
   },
   {
-    title: 'Desenvolvimento Empresarial',
-    subtitle: 'Apoiamos o crescimento sustentável das empresas.',
     image: new URL('@/assets/banner03.png', import.meta.url).href
   }
 ])
@@ -73,7 +56,7 @@ let interval = null
 const startAutoPlay = () => {
   interval = setInterval(() => {
     currentSlide.value = (currentSlide.value + 1) % slides.value.length
-  }, 6000)
+  }, 5000)
 }
 
 const goToSlide = (index) => {
@@ -104,16 +87,14 @@ onBeforeUnmount(() => {
 <style scoped>
 .hero-banner {
   position: relative;
-  height: 80vh;
+  height: 600px;
   overflow: hidden;
-  margin-bottom: 4rem;
-  font-family: 'Montserrat', sans-serif;
 }
 
 .carousel {
   position: relative;
   width: 100%;
-  height: 100%;
+  height: 600px;
 }
 
 .slide {
@@ -123,7 +104,7 @@ onBeforeUnmount(() => {
   width: 100%;
   height: 100%;
   opacity: 0;
-  transition: opacity 1.2s ease-in-out;
+  transition: opacity 1.9s ease-in-out;
   display: flex;
   align-items: center;
 }
@@ -135,97 +116,25 @@ onBeforeUnmount(() => {
 
 .slide-bg {
   position: absolute;
-  top: 0;
+  top: 60px;
   left: 0;
   width: 100%;
-  height: 100%;
+  height: 600px;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   filter: brightness(0.75);
 }
 
-.slide-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(135deg, rgba(0, 100, 0, 0.85), rgba(0, 50, 0, 0.6));
-  z-index: 1;
-}
-
-.slide-content {
-  position: relative;
-  z-index: 2;
-  max-width: 600px;
-  padding: 2rem 4rem;
-  color: white;
-}
-
-.slide-content h1 {
-  font-size: 3rem;
-  font-weight: 800;
-  margin-bottom: 1rem;
-  line-height: 1.2;
-  text-shadow: 0 2px 8px rgba(0,0,0,0.4);
-}
-
-.slide-content p {
-  font-size: 1.3rem;
-  margin-bottom: 2rem;
-  opacity: 0.95;
-  font-family: 'Roboto', sans-serif;
-  text-shadow: 0 1px 4px rgba(0,0,0,0.3);
-}
-
-.btn-denuncia {
-  background: #ffffff;
-  color: #d32f2f;
-  font-weight: 700;
-  font-size: 1.1rem;
-  padding: 1rem 2rem;
-  border-radius: 50px;
-  text-decoration: none;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.7rem;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.3);
-  transition: all 0.4s ease;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-}
-
-.btn-denuncia:hover {
-  background: #ffebee;
-  transform: translateY(-4px) scale(1.05);
-  box-shadow: 0 12px 30px rgba(211,47,47,0.3);
-}
-
-.exclamation {
-  background: #d32f2f;
-  color: white;
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: bold;
-  font-size: 1.1rem;
-}
-
 /* BOTÕES DE NAVEGAÇÃO INFERIORES */
 .nav-btn {
   position: absolute;
-  bottom: 2.5rem;
-  background: rgba(255, 255, 255, 0.25);
-  color: white;
+  bottom: 50%;
+  background-color: transparent;
   border: none;
   width: 50px;
   height: 50px;
   border-radius: 50%;
-  font-size: 1.4rem;
   cursor: pointer;
   z-index: 3;
   transition: all 0.3s ease;
@@ -237,18 +146,19 @@ onBeforeUnmount(() => {
 
 .nav-btn:hover {
   background: rgba(255, 255, 255, 0.4);
-  transform: scale(1.1);
-  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.SetaDireita{
+  transform: scale(-1);
 }
 
 .prev {
-  left: 2rem;
+  left: 3rem;
 }
 
 .next {
-  right: 2rem;
+  right: 3rem;
 }
-
 /* Indicadores */
 .dots {
   position: absolute;
@@ -261,8 +171,8 @@ onBeforeUnmount(() => {
 }
 
 .dots span {
-  width: 14px;
-  height: 14px;
+  width: 10px;
+  height: 10px;
   border-radius: 50%;
   background: rgba(255,255,255,0.5);
   cursor: pointer;
@@ -270,9 +180,8 @@ onBeforeUnmount(() => {
 }
 
 .dots span.active {
-  background: #ffcc00;
+  background: var(--cor-verde);
   transform: scale(1.4);
-  box-shadow: 0 0 10px rgba(255,204,0,0.6);
 }
 
 /* Responsivo */

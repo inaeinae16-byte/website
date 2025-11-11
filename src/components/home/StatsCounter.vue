@@ -1,5 +1,5 @@
 <template>
-  <section class="stats">
+  <section class="stats"> 
     <div class="container">
       <div class="stat-item" v-for="stat in stats" :key="stat.label">
         <div class="stat-number" ref="numbers">
