@@ -16,7 +16,7 @@
 h1{
     display: flex;
     justify-content: center;
-    font-family: Black;
+    font-family: black;
     color: var(--cor-verde);
     font-size: var(--f6);
     text-transform: capitalize;

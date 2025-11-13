@@ -6,6 +6,7 @@
     --cor-verde: #3b8253;
     --cor-amarela: #efea14;
     --cor-vermelha: #e52f28;
+    --cor-cartao: #D7D7D7;
     
     /*Tamanho das fontes */
     --f0: 10px;
@@ -15,7 +16,8 @@
     --f4: 25px;
     --f5: 35px;
     --f6: 40px;
-    --f7: 60px;
+    --f7: 52px;
+    --f8: 60px;
 
 
 }

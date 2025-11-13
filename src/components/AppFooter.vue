@@ -4,7 +4,7 @@
       <!-- Coluna 1: Logo + Descrição -->
       <div class="footer-col logo-col">
         <router-link to="/" class="footer-logo">
-          <img src="@/assets/logo-inae.png" alt="INAE Logo" class="footer-logo-img" />
+         
         </router-link>
         <p class="footer-desc">
           Instituto Nacional de Apoio às Empresas<br>

@@ -43,6 +43,21 @@ body.bloqueado {
     color: var(--cor-ver);
     background-color: #1a55a28b;
 }
+
+/*Estilizando a barra de Rolgem*/
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--cor-preto);
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--cor-amarela);
+    border-radius: 0px 20px;
+}
+
 a,
 img,
 svg,

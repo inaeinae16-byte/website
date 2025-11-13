@@ -20,7 +20,7 @@
     </nav>
 
     <button class="Buttondenuncia">
-      <router-link to="/denuncia"> <Svg name="denuncia" class="denuncia"/> Denuncia </router-link>
+    <Svg name="denuncia" class="denuncia"/> Denuncia 
     </button>
 
   </header>
@@ -92,7 +92,7 @@ li a {
   display: flex;
   text-align: center;
   background-color: var(--cor-branco);
-  color: var(--cor-preta);
+  color: var(--cor-preto);
   font-family: semibold;
   margin-left: auto;
   margin-right: 50px;

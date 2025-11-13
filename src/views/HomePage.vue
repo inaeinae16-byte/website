@@ -1,35 +1,30 @@
 <template>
   <div class="home">
-    <HeroBanner />
+    <HeroSection />
     <Sectionfaixa />
-    <StatsCounter />
-    <ActivityAreas />
-    <LatestNews />
+    <Sectioninspecoes />
+    <SectionAreadeAtuação />
+    <SectionNoticias />
   </div>
 </template>
 
 <script>
-import HeroBanner from '@/components/home/HeroBanner.vue'
+import HeroSection from '@/components/home/HeroSection.vue'
 import Sectionfaixa from '@/components/home/Sectionfaixa.vue'
-import StatsCounter from '@/components/home/StatsCounter.vue'
-import ActivityAreas from '@/components/home/ActivityAreas.vue'
-import LatestNews from '@/components/home/LatestNews.vue'
-
+import Sectioninspecoes from '@/components/home/Sectioninspecoes.vue'
+import SectionAreadeAtuação from '@/components/home/SectionAreadeAtuação.vue'
+import SectionNoticias from '@/components/home/SectionNoticias.vue'
 
 export default {
   name: 'HomePage',
   components: {
-    HeroBanner,
+    HeroSection,
     Sectionfaixa,
-    StatsCounter,
-    ActivityAreas,
-    LatestNews
+    Sectioninspecoes,
+    SectionAreadeAtuação,
+    SectionNoticias
   }
 }
 </script>
 
-<style scoped>
-.home {
-  background-color: #f8f9fa;
-}
-</style>
+<style scoped></style>
