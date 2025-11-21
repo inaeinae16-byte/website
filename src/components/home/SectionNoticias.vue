@@ -334,13 +334,19 @@ onBeforeUnmount(() => {
   font-size: var(--f3);
   font-family: bold;
   cursor: pointer;
-  display: inline-flex;
+  display: flex;
   align-items: center;
   justify-content: center;
-  gap: 200px;
+  gap: 190px;
   transition: all 0.3s ease;
   white-space: nowrap;
 }
+
+@media (max-width: 1280px) {
+.btn-ver-noticia {
+  gap: 150px;
+}
+  }
 
 .btn-ver-noticia:hover {
   background-color: #cf504c;
@@ -350,6 +356,8 @@ onBeforeUnmount(() => {
 .btn-ver-noticia .arawnoticia {
   transition: transform 0.3s ease;
 }
+
+
 
 .btn-ver-noticia:hover svg {
   transform: translateX(4px);

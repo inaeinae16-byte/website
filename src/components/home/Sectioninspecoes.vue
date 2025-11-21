@@ -21,9 +21,9 @@
 <style scoped>
 .container {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   justify-content: center;
-  gap: 170px;
+  gap: 120px;
   padding: 20px;
 }
 
@@ -32,7 +32,7 @@
   flex-direction: column;
   align-items: center;
   text-align: center;
-  min-width: 600px;
+  min-width: 540px;
   height: 350px;
   background-color: var(--cor-branca);
   box-shadow: 0px 9px 28px -4px rgba(59, 130, 83, 1);

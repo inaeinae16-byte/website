@@ -75,11 +75,16 @@ li {
   padding: 1.5rem;
   list-style: none;
   color: var(--cor-branco);
+  transition: all .1s;
 }
 
 li a {
   color: var(--cor-branco);
   text-decoration: none;
+}
+
+li a:hover{
+  opacity: .8;
 }
 
 .logo1{
@@ -89,6 +94,7 @@ li a {
 }
 
 .Buttondenuncia{
+  cursor: pointer;
   display: flex;
   text-align: center;
   background-color: var(--cor-branco);
@@ -97,10 +103,16 @@ li a {
   margin-left: auto;
   margin-right: 50px;
   border: none;
- cursor: pointer;
   padding: 10px 20px;
   border-radius: 5px;
   gap: 2px;
+  transition: .5s ease-in-out;
+  z-index: 100;
+}
+
+.Buttondenuncia:hover {
+  background-color: var(--cor-vermelha);
+  color: var(--cor-branco);
 }
 
 .denuncia {
