@@ -23,4 +23,19 @@ h1{
     padding: 3rem;
  
 }
+
+@media (max-width: 428px) {
+
+  .paragrafo {
+    width: 100%;
+    height: 200px;
+    margin-bottom: 30px;
+  }
+
+  h1{
+    font-size:var(--f5);
+    padding: 0 6px 10px;
+    text-align: center;
+  }
+}
 </style>

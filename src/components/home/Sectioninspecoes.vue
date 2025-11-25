@@ -35,7 +35,7 @@
   min-width: 540px;
   height: 350px;
   background-color: var(--cor-branca);
-  box-shadow: 0px 9px 28px -4px rgba(59, 130, 83, 1);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.20);
   border-radius: 20px;
   padding: 40px 32px;
   transition: transform 0.30s ease;
@@ -44,7 +44,7 @@
 
 .card:hover {
   transform: translateY(-15px);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.20);
+ box-shadow: 0px 9px 28px -4px rgba(59, 130, 83, 1);
 }
 
 .lupa, .lupa2{
@@ -68,6 +68,39 @@
   font-family: semibold;
   font-size: var(--f4); 
 }
+
+@media (max-width: 428px) {
+
+  .container {
+    flex-direction: column;        
+    gap: 40px;                     
+    padding: 10px;
+  }
+
+  .card {
+    min-width: 100%;              
+    height: auto;                  
+    padding: 40px 20px;
+  }
+
+  .icon,
+  .lupa,
+  .lupa2 {
+    width: 70px;                  
+    height: auto;
+    margin-bottom: 0px;
+  }
+
+  .Numero {
+    font-size: var(--f6);
+  }
+
+  .Descricao {
+    font-size: calc(var(--f4) - 6px);
+  }
+}
+
+
 
 
 </style>

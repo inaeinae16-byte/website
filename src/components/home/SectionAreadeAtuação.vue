@@ -133,7 +133,7 @@ import Svg from '../../assets/Svg/Svgs.vue'
   .cartao-area { padding: 30px 18px 78px; }
 }
 
-@media (max-width: 430px) {
+@media (max-width: 410px) {
   .grande-area { grid-template-columns: 1fr; }
   .icon { width: 110px; height: 90px; }
 }

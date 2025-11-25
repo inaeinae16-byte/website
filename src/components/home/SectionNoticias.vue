@@ -196,8 +196,8 @@ onBeforeUnmount(() => {
 /* CONTAINER PRINCIPAL  */
 .secao-ultimas-noticias {
   width: 100%;
-  padding: 60px 0;
-  background-color: #f8f9fa;
+  padding: 25px 0;
+  background-color: #f2f5f7;
 }
 
 .container-noticias {
