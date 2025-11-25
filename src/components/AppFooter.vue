@@ -55,7 +55,7 @@
         <!-- Email institucional -->
         <div class="footer-email">
           <p class="email-label">E-Mail / Seg. A Sex. Das 8h Às 15h</p>
-          <p class="email-address">inspeccionacionalidasatividadeseconomicas@inae.com.mz</p>
+          <p class="email-address">inae@gmail.com</p>
         </div>
 
         <!-- Redes sociais -->
@@ -189,6 +189,7 @@ import Svg from '../assets/Svg/Svgs.vue'
   text-decoration: none;
   font-size: var(--f9);
   transition: all .4s;
+  
 }
 
 .footer-links a:hover {
@@ -231,7 +232,7 @@ import Svg from '../assets/Svg/Svgs.vue'
 }
 
 .contact-phone {
-  font-size: var(--f5);
+  font-size: var(--f9);
   font-family: semibold;
   color: var(--cor-branco);
 }
@@ -243,7 +244,7 @@ import Svg from '../assets/Svg/Svgs.vue'
 }
 
 .email-label {
-  font-size: var(--f4);
+  font-size: var(--f3);
   color: var(--cor-cinza);
   margin-bottom: 10px;
   margin-top: -24px;
@@ -263,8 +264,8 @@ import Svg from '../assets/Svg/Svgs.vue'
 }
 
 .social-icon {
-  width: 40px;
-  height: 40px;
+  width: 30px;
+  height: 30px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -291,51 +292,90 @@ import Svg from '../assets/Svg/Svgs.vue'
 
 /* Texto de copyright */
 .copyright {
-  font-size: var(--f9);
+  font-size: var(--f3);
   color: var(--cor-branco);
+  text-align: center;
   flex: 1;
 }
 
 /* republica */
 .republica {
-  width: 50px;
+  width: 40px;
 }
 
 /* 
    RESPONSIVIDADE PARA DISPOSITIVOS MÓVEIS
     */
 
-@media (max-width: 768px) {
-  /* Ajusta seção superior para coluna em telas pequenas */
+@media (max-width: 428px) {
   .footer {
+    width: 100%;
     flex-direction: column;
     padding: 1px 0px 5px ;
-  }
-
-  /* Centraliza conteúdo em mobile */
-
-  .footer-logo-section,
-  .footer_indereco,
-  .footer-links {
-   width: 100%;
-  }
-
-  /* Ajusta seção do meio para coluna */
-  .footer-middle-content {
-    flex-direction: column;
     text-align: center;
   }
 
-  /* Centraliza redes sociais */
-  .footer-social {
-    justify-content: center;
-  }
+ .logofooter{
+  width: 100px;
+  margin-bottom: 10px;
+  margin-right: 170px;
+}
 
-  /* Ajusta seção inferior para coluna */
-  
+.footer_indereco {
+  flex-direction: column;
+  text-align: center;
+}
+
+
+  .footer_indereco h3 {
+  margin-left: 100px;
+}
+
+.footer_indereco p {
+  padding: 0 0 0 5px ;
+  margin-left: 100px;
+}
+
+.footer-links h3  {
+  margin-right: 100px;
+}
+
+.footer-links {
+  flex: 1;
+  min-width: 500px;
+  max-width: 200px;
+ 
+}
+
+.footer-links a{
+   margin-right: 100px;
+}
+
+.contact-label {
+  text-align: center;
+}
+
+.contact-phone {
+  text-align: center;
+}
+
+.email-label {
+  text-align: center;
+}
+
+.email-address {
+  font-size: var(--f9);
+  text-align: center;
+  margin-bottom: 2px;
+}
+
+.footer-social {
+  margin-left: 160px;
+}
   .footer-bottom-content {
     flex-direction: column;
     text-align: center;
   }
 }
+
 </style>
