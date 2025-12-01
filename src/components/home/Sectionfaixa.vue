@@ -24,12 +24,12 @@ h1{
  
 }
 
-@media (max-width: 428px) {
+@media (max-width: 500px) {
 
   .paragrafo {
     width: 100%;
     height: 200px;
-    margin-bottom: 30px;
+    margin-bottom: 50px;
   }
 
   h1{

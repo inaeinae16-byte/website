@@ -44,7 +44,7 @@
               <p class="descricao-noticia">{{ noticia.descricao }}</p>
  
               <!-- Botão Ver Notícia Completa -->
-              <button class="btn-ver-noticia" @click="verMais(noticia)">
+              <button class="btn-ver-noticia" @click="verNoticiaCompleta(noticia.id)">
                 Ver Notícia Completa
                 <Svg name="arawnoticia" class="arawnoticia" />
               </button>
@@ -60,7 +60,6 @@
 import { ref, onMounted, onBeforeUnmount } from 'vue'
 import { useRouter } from 'vue-router'
 import Svg from '../../assets/Svg/Svgs.vue'
-import noticiasData from '../../data/noticias.js'
 
 // COMPOSABLES 
 const router = useRouter()
@@ -87,7 +86,41 @@ const pararAutoPlay = () => {
 }
 
 // Array de notícias
-const noticias = ref(noticiasData)
+const noticias = ref([
+  {
+    id: 1,
+    imagem: new URL('@/assets/img-Noticas/image1.jpg', import.meta.url).href,
+    titulo: 'INAE intensifica acções contra a venda ilegal de cigarros...',
+    descricao: 'maputo, 27 de fevereiro de 2025  a Inspecção nacional das actividades económicas (Inae...'
+  },
+  {
+    id: 2,
+    imagem: new URL('@/assets/img-Noticas/image2.jpg', import.meta.url).href,
+    titulo: 'INAE intensifica acções contra a venda ilegal de cigarros...',
+    descricao: 'A Primeira-Ministra, Maria Benvinda, Levi Emposse Hoje A Juíza Desembargadora Shaquila Aboobacur Mohomed...'
+  },
+  {
+    id: 3,
+    imagem: new URL('@/assets/img-Noticas/image3.jpg', import.meta.url).href,
+    titulo: 'INAE intensifica acções contra a venda ilegal de cigarros...',
+    descricao: 'A Primeira-Ministra, Maria Benvinda, Levi Emposse Hoje A Juíza Desembargadora Shaquila Aboobacur Mohamed...'
+  },
+  {
+    id: 4,
+    imagem: new URL('@/assets/img-Noticas/image4.jpg', import.meta.url).href,
+    titulo: 'INAE intensifica acções contra a venda ilegal de cigarros...',
+    descricao: 'A Primeira-Ministra, Maria Benvinda, Levi Emposse Hoje A Juíza Desembargadora Shaquila Aboobacur Mohomed...'
+  },
+
+  {
+    id: 5,
+    imagem: new URL('@/assets/img-Noticas/image1.jpg', import.meta.url).href,
+    titulo: 'INAE intensifica acções contra a venda ilegal de cigarros...',
+    descricao: 'A Primeira-Ministra, Maria Benvinda, Levi Emposse Hoje A Juíza Desembargadora Shaquila Aboobacur Mohomed...'
+  }
+ //Colocamos mas noticias
+  
+])
 
                       // MÉTODOS DE NAVEGAÇÃO
 
@@ -140,24 +173,6 @@ const verNoticiaCompleta = (idNoticia) => {
   router.push({ name: 'noticia-detalhes', params: { id: idNoticia } })
 }
 
-/**
- * Navega para a página de detalhe enviando o objeto de notícia pelo `state` do history.
- * Recebe o objeto `noticia` completo (conforme array `noticias`) e passa para a rota
- * chamada `NoticiaDetalhe` usando `router.push({ name, state })`.
- */
-const verMais = (noticia) => {
-  if (!noticia) return
-  // debug: mostrar no console o que vamos enviar via state
-  try {
-    console.log('[SectionNoticias] verMais -> noticia:', noticia)
-  } catch (e) {}
-  // push state + id param so detail view can load either from state or by id
-  router.push({ name: 'NoticiaDetalhe', params: { id: noticia.id }, state: { noticia } })
-
-  // também gravamos temporariamente no sessionStorage como fallback
-  try { sessionStorage.setItem('noticia_selecionada', JSON.stringify(noticia)) } catch (e) {}
-}
-
 // LIFECYCLE HOOKS 
 onMounted(() => {
   // Detectar tamanho da tela e ajustar número de notícias visíveis
@@ -181,14 +196,14 @@ onBeforeUnmount(() => {
 /* CONTAINER PRINCIPAL  */
 .secao-ultimas-noticias {
   width: 100%;
-  padding: 25px 0;
-  background-color: #f2f5f7;
+  padding: 40px 0;
+  background-color: var(--cor-branco);
 }
 
 .container-noticias {
   max-width: 1400px;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0 30px;
 }
 
 /*  CABEÇALHO DA SEÇÃO  */
@@ -200,7 +215,7 @@ onBeforeUnmount(() => {
 }
 
 .titulo-secao {
-  font-size: var(--f5);
+  font-size: var(--f6);
   font-family: semibold;
   color: var(--cor-preto);
   margin: 0;
@@ -213,8 +228,8 @@ onBeforeUnmount(() => {
 }
 
 .btn-navegacao {
-  width: 50px;
-  height: 50px;
+  width: 60px;
+  height: 60px;
   border: none;
   border-radius: 50%;
   display: flex;

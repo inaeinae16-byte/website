@@ -312,29 +312,18 @@ import Svg from '../assets/Svg/Svgs.vue'
     width: 100%;
     flex-direction: column;
     padding: 1px 0px 5px ;
-    text-align: center;
   }
 
  .logofooter{
   width: 100px;
   margin-bottom: 10px;
-  margin-right: 170px;
+  left: 150px;
 }
 
 .footer_indereco {
   flex-direction: column;
-  text-align: center;
 }
 
-
-  .footer_indereco h3 {
-  margin-left: 100px;
-}
-
-.footer_indereco p {
-  padding: 0 0 0 5px ;
-  margin-left: 100px;
-}
 
 .footer-links h3  {
   margin-right: 100px;

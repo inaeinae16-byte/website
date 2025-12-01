@@ -3,6 +3,7 @@
     <h2>Sobre a INAE</h2>
     <p>A INAE trabalha para garantir a fiscalização e defesa do consumidor.</p>
   </div>
+
 </template>
 
 <script>

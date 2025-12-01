@@ -6,6 +6,7 @@ import SobrePage from '../views/SobrePage.vue'
 import ContactoPage from '../views/ContactoPage.vue'
 import LegislacaoPage from '../views/LegislacaoPage.vue'
 import NoticiasPage from '../views/NoticiasPage.vue'
+import NoticiaDetalhes from '../views/NoticiaDetalhes.vue'
 import ConcursosPage from '../views/ConcursosPage.vue'
 import DenunciaPage from '../views/DenunciaPage.vue'
 
@@ -15,6 +16,8 @@ const routes = [
   { path: '/contacto', name: 'ContactoPage', component: ContactoPage },
   { path: '/legislacao', name: 'LegislacaoPage', component: LegislacaoPage },
   { path: '/noticias', name: 'NoticiasPage', component: NoticiasPage },
+  { path: '/noticia/:id', name: 'noticia-detalhes', component: NoticiaDetalhes },
+  { path: '/noticia/detalhe/:id?', name: 'NoticiaDetalhe', component: NoticiaDetalhes },//Aceita id opcional
   { path: '/concursos', name: 'ConcursosPage', component: ConcursosPage },
   { path: '/denuncia', name: 'DenunciaPage', component: DenunciaPage }
 ]

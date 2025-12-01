@@ -1,7 +1,21 @@
 <template>
-
+<div class="Noticias">
+<HeroNoticias />
+<SlideUltimasnoticias />
+</div>
 </template>
 
-<style scoped>
+<script>
+import HeroNoticias from '@/components/noticias/HeroNoticias.vue';
+import SlideUltimasnoticias from '@/components/noticias/slideUltimasnoticias.vue';
 
-</style>
+export default {
+    name: 'Noticias',
+    components: {
+        HeroNoticias,
+        SlideUltimasnoticias,
+    }
+}
+</script>
+
+<style scoped></style>

@@ -134,8 +134,10 @@ import Svg from '../../assets/Svg/Svgs.vue'
 }
 
 @media (max-width: 410px) {
-  .grande-area { grid-template-columns: 1fr; }
+  .grande-area { grid-template-columns: repeat(2, 1fr); }
   .icon { width: 110px; height: 90px; }
+  .titulo {font-size: var(--f4);}
+  
 }
 
 </style>

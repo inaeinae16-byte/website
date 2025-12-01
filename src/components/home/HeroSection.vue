@@ -94,7 +94,7 @@ onBeforeUnmount(() => {
 .carousel {
   position: relative;
   width: 100%;
-  height: 600px;
+  height: 100%;
 }
 
 .slide {
@@ -186,7 +186,7 @@ onBeforeUnmount(() => {
 
 /* Responsivo */
 @media (max-width: 992px) {
-  .hero-banner { height: 70vh; }
+  .hero-banner { height: 70vh; min-height: 360px;}
   .slide-content { padding: 2rem; max-width: 100%; text-align: center; }
   .slide-content h1 { font-size: 2.4rem; }
   .slide-content p { font-size: 1.1rem; }
@@ -202,5 +202,6 @@ onBeforeUnmount(() => {
   .slide-content p { font-size: 1rem; }
   .btn-denuncia { padding: 0.8rem 1.5rem; font-size: 0.95rem; }
   .nav-btn { width: 40px; height: 40px; font-size: 1.1rem; }
+  .dots {bottom: 1.2rem; gap: 0.7rem;}
 }
 </style>

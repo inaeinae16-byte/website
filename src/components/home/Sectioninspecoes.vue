@@ -23,7 +23,7 @@
   display: flex;
   flex-wrap: nowrap;
   justify-content: center;
-  gap: 120px;
+  gap: 110px;
   padding: 20px;
 }
 
@@ -32,12 +32,13 @@
   flex-direction: column;
   align-items: center;
   text-align: center;
-  min-width: 540px;
+  min-width: 280px;
+  max-width: 540px;
   height: 350px;
   background-color: var(--cor-branca);
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.20);
   border-radius: 20px;
-  padding: 40px 32px;
+padding: 45px 58px;
   transition: transform 0.30s ease;
 
 }
@@ -69,7 +70,7 @@
   font-size: var(--f4); 
 }
 
-@media (max-width: 428px) {
+@media (max-width: 500px) {
 
   .container {
     flex-direction: column;        
@@ -78,7 +79,8 @@
   }
 
   .card {
-    min-width: 100%;              
+    min-width: 100%;  
+    max-width: 100%;            
     height: auto;                  
     padding: 40px 20px;
   }
@@ -96,7 +98,7 @@
   }
 
   .Descricao {
-    font-size: calc(var(--f4) - 6px);
+    font-size: calc(var(--f4) - 7px);
   }
 }
 
