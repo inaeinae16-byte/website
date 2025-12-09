@@ -55,17 +55,17 @@
         <!-- Email institucional -->
         <div class="footer-email">
           <p class="email-label">E-Mail / Seg. A Sex. Das 8h Às 15h</p>
-          <p class="email-address">inae@gmail.com</p>
+          <p class="email-address">inaeinae16@gmail.com</p>
         </div>
 
         <!-- Redes sociais -->
         <div class="footer-social">
-          <a href="#" class="social-icon">
-            <!-- Ícone Instagram -->
+          <a href="https://web.facebook.com/profile.php?id=61582424260696" class="social-icon">
+            <!-- Ícone faceebook-->
             <Svg name="iconfacebook" class="iconfacebook" />
           </a>
           <a href="#" class="social-icon">
-            <!-- Ícone Facebook -->
+            <!-- Ícone intagram-->
             <Svg name="iconinstagram" class="iconinstagram" />
           </a>
 
