@@ -116,6 +116,7 @@ export default {
   font-size: 1.1rem;
   line-height: 1.6;
   margin-bottom: 12px;
+  font-family: Regular;
 }
 
 /* Responsivo */

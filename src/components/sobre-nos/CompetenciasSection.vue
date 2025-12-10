@@ -66,7 +66,7 @@ export default {
 <style scoped>
 .competencias-section {
   width: 100%;
-  padding: 80px 20px;
+  /* padding: 80px 20px; tirei por conta do separamento que esta a dar entre o conteudo principal e o mesmo  */
   max-width: 1100px;
   margin: auto;
 }
@@ -74,7 +74,7 @@ export default {
 .title { 
   margin-bottom: 40px;
   text-align: center;
-  font-size: var(--f5);
+  font-size: var(--f7);
   font-family: bold;
   color: var(--cor-verde);
 }
@@ -107,6 +107,7 @@ export default {
   justify-content: space-between;
   align-items: center;
   cursor: pointer;
+  font-family: semibold;
 }
 
 .accordion-header:hover {
@@ -135,6 +136,7 @@ export default {
   font-size: 1rem;
   color: #444;
   line-height: 1.6;
+  font-family: Regular;
 }
 
 /* Responsivo */
