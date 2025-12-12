@@ -54,7 +54,8 @@
     </div>
  
     <!--Button desktop-->
-    <button class="Buttondenuncia">
+    <!-- <router-link to="/concursos" active-class="active" exact @click="closeMenu">Concursos</router-link></li> -->
+     <button class="Buttondenuncia" @click="$router.push('/denuncia')" >
     <Svg name="denuncia" class="denuncia"/> Denuncia 
     </button>
 
