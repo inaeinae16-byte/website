@@ -48,7 +48,7 @@
       </ul>
 
       <!-- Botão de denúncia dentro do menu mobile -->
-      <button class="Buttondenuncia-mobile">
+      <button class="Buttondenuncia-mobile" @click="$router.push('/denuncia')">
         <Svg name="denuncia" class="denuncia"/> Denuncia 
       </button>
     </div>
@@ -66,7 +66,6 @@
 <script setup>
 import { ref } from 'vue'
 import Svg from '../assets/Svg/Svgs.vue'
-import Svgs from '../assets/Svg/Svgs.vue'
 
 //controla o estado do menu moblie se esta aperto ou fechado ~
 const mobileMenuOpen = ref (false)

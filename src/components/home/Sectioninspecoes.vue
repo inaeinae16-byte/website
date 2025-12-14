@@ -23,7 +23,7 @@
   display: flex;
   flex-wrap: nowrap;
   justify-content: center;
-  gap: 110px;
+  gap: 90px;
   padding: 20px;
 }
 
@@ -32,13 +32,12 @@
   flex-direction: column;
   align-items: center;
   text-align: center;
-  min-width: 280px;
-  max-width: 540px;
+  max-width: 1000px;
   height: 350px;
   background-color: var(--cor-branca);
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.20);
   border-radius: 20px;
-padding: 45px 58px;
+  padding: 45px 100px;
   transition: transform 0.30s ease;
 
 }

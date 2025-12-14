@@ -1,7 +1,7 @@
 <template>
 <div class="denuncia">
-  <h1>Denuncie</h1>
-  <p>Preencha os dados</p>
+  <h1>Fale Connosco</h1>
+  <p>Sera um prazer lhe ajudar</p>
 </div>
 
 <section class="formulario">
@@ -19,78 +19,8 @@
         </fieldset>
 
         <fieldset>
-          <legend>Contacto <span class="obrigatorio">*</span></legend>
-          <input type="text" placeholder="+258" id="contacto">
-        </fieldset>   
-
-        <fieldset>
-          <legend>Endereço <span class="obrigatorio">*</span></legend>
-          <input type="text" placeholder="Digite o seu endereço" id="endereco">
-        </fieldset>  
-      </div>
-
-      <h3>Dados da entidade econômica</h3>
-
-      <div class="campos_entidade">
-        <fieldset>
-          <legend>Nome do estabelecimento <span class="obrigatorio">*</span></legend>
-          <input type="text" id="estabelecimento">
-        </fieldset>  
-
-        <fieldset>
-          <legend>Província<span class="obrigatorio">*</span></legend>
-          <!-- <div class="select-wrapper">
-            <select id="provincia">
-              <option value="">Selecione a Província</option>
-              <option value="maputo">Maputo</option>
-              <option value="gaza">Gaza</option>
-              <option value="inhambane">Inhambane</option>
-              <option value="sofala">Sofala</option>
-              <option value="manica">Manica</option>
-              <option value="tete">Tete</option>
-              <option value="zambezia">Zambézia</option>
-              <option value="nampula">Nampula</option>
-              <option value="cabo-delgado">Cabo Delgado</option>
-              <option value="niassa">Niassa</option>
-            </select>
-          </div> -->
-           <div class="select_option">
-                {{ selectedTextProvincia }}
-
-                <span :class="['arrow', { open: isOpen }]"></span>
-
-              </div>
-        </fieldset>  
-
-        <fieldset>
-          <legend>Localização do estabelecimento <span class="obrigatorio">*</span></legend>
-          <input type="text" placeholder="Localização" id="localizacao">
-        </fieldset>  
-
-        <fieldset>
-          <legend>Contacto do estabelecimento <span class="obrigatorio">*</span></legend>
-          <input type="text" placeholder="+258" id="contacto_estabelecimento">
-        </fieldset>
-      </div>
-
-      <div class="ultima">
-        <fieldset class="campo-data">
-          <legend>Data da corrência <span class="obrigatorio">*</span></legend>
-          <input type="date" placeholder="dd/mm/aa" id="data_ocorrencia">
-        </fieldset>
-
-        <fieldset class="campo-assunto">
           <legend>Assunto <span class="obrigatorio">*</span></legend>
           <div class="select-wrapper">
-            <!-- <select id="assunto">
-              <option value="">Localização</option>
-              <option value="preco">Preço abusivo</option>
-              <option value="qualidade">Má qualidade</option>
-              <option value="atendimento">Mau atendimento</option>
-              <option value="higiene">Falta de higiene</option>
-              <option value="outro">Outro</option>
-            </select> -->
-
             <div class="customizar_select" @click="toggleSelect">
               <div class="select_option">
                 {{ selectedText }}
@@ -108,18 +38,18 @@
               </ul>
             </div>
           </div>
-        </fieldset>
-
-        <fieldset class="campo-evidencias">
-          <legend>Evidências <span class="obrigatorio">*</span></legend>
-          <div class="file-input-wrapper">
+        </fieldset>   
+        
+        <fieldset>
+          <legend>Evidencias<span class="obrigatorio">*</span></legend>
+           <div class="file-input-wrapper">
             <input type="file" id="evidencias" accept="image/*,video/*,.pdf">
             <label for="evidencias">
               <span class="file-placeholder">Suba a evidência</span>
               <span class="file-icon"> <Svg name="iconfile" class="iconfile"/> </span>
             </label>
           </div>
-        </fieldset>
+        </fieldset>  
       </div>
 
       <fieldset class="campo-mensagem">
@@ -139,13 +69,13 @@
 <style scoped>
 
 .denuncia {
-  margin-top: 50px;
+  margin-top: 80px;
   padding: 40px 20px 20px;
   text-align: center;
 }
 
 .denuncia h1 {
-  color: var(--cor-vermelha);
+  color: var(--cor-preto);
   font-size: var(--f6);
   font-family: bold;
   margin-bottom: 10px;
@@ -161,15 +91,15 @@
   display: flex;
   justify-content: center;
   padding: 20px;
-  min-height: 100vh;
+  min-height: 50vh;
 }
 
 .conteudo_principal {
   background: var(--cor-branco);
-  border: 2px solid var(--cor-vermelha);
+  border: 2px solid var(--cor-verde);
   border-radius: 20px;
   padding: 40px;
-  max-width: 1000px;
+  max-width: 1180px;
   width: 100%;
 }
 
@@ -215,7 +145,7 @@ fieldset {
 }
 
 fieldset:focus-within {
-  border-color: var(--cor-vermelha);
+  border-color: var(--cor-verde);
 }
 
 legend {
@@ -241,12 +171,6 @@ textarea {
   color: var(--cor-preto);
   transition: all 0.3s ease;
 }
- /*Para remover aqueele icon de calendario */
-input[type="date"]::-webkit-calendar-picker-indicator {
-  display: none;
-  -webkit-appearance: none;
-}
-
 
 input::placeholder,
 textarea::placeholder {
@@ -260,9 +184,6 @@ textarea:focus {
 }
 
 /* Select customizado */
-.select-wrapper {
-  
-}
 
 .customizar_select {
   width: 100%;
@@ -378,16 +299,16 @@ textarea {
   min-height: 10px;
   font-family: inherit;
   padding: 2px 0;
-  margin-bottom: 40px;
 }
 
 .campo-mensagem {
   grid-column: 1 / -1;
+  height: 100px;
 }
 
 /* Botão de enviar */
 .btn-enviar {
-  background-color: var(--cor-vermelha);
+  background-color: var(--cor-verde);
   color: var(--cor-branco);
   border: none;
   border-radius: 8px;
@@ -450,7 +371,6 @@ textarea {
 
   .btn-enviar {
     font-size: var(--f3);
-    
   }
 
 }
