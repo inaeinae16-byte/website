@@ -179,9 +179,34 @@ const delegacoes = [
   },
    {
     provincia: 'Sofala',
-    endereco: 'Rua Cidade de Lichinga nº 311, Cidade de Chimoio',
-    telefone: '+258 86 819 7607 / 84 819 7428',
+    endereco: 'Rua Francismo Gorjão nº 370, Ponta Gea, Cidade da Beira',
+    telefone: '+258 82 441 1836 ',
     email: 'inae.sofala@inae.gov.mz'
-  }
+  },
+   {
+    provincia: 'Inhambane',
+    endereco: 'Av. Acordos de Lusaka, ao lado da Gráfica Sul Save, Cidade de Inhambane',
+    telefone: '+258 86 672 8240 ',
+    email: 'inae.inhamban@inae.gov.mz'
+  },
+   {
+    provincia: 'Gaza',
+    endereco: 'Av. Samora Machel, EN1 Cidade de Xai-Xai.',
+    telefone: '+258 84 609 9000 |86 609 9000  ',
+    email: 'inae.gaza@inae.gov.mz'
+  },
+   {
+    provincia: 'Provincia de Maputo',
+    endereco: 'Rua 11.135, em frente ao Centro Cultural do Banco de Moçambique, Cidade da Matola.',
+    telefone: '+258 87 327 3463',
+    email: 'inae.provinciademaputo@inae.gov.mz'
+  },
+   {
+    provincia: 'Cidade Maputo',
+    endereco: 'Av. Josina Machel n⁰ 151, Cidade de Maputo.',
+    telefone: '+258 87 327 3463',
+    email: 'inae.cidadedemaputogaza@inae.gov.mz'
+  },
+
 ]
 </script>
