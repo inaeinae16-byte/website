@@ -1,5 +1,5 @@
 <template>
-<<<<<<< HEAD
+  
   <section class="container-geral">
     <!-- Buttons-->
     <nav class="abas">
@@ -31,8 +31,8 @@
           </li>
         </transition-group>
       </div>
-    </div>
-  </section>
+          </div>
+        </section>
 </template>
 
 
@@ -228,17 +228,3 @@ const conteudos = {
 const secaoAtual = computed(() => conteudos[secaoAtiva.value]);
 </script>
 
-=======
-    <h1>Hello Word</h1>
-</template>
-
-<style scoped>
-
-h1 {
-    font-family: 'Courier New', Courier, monospace;
-    z-index: 1000;
-    font-size: 20rem;
-}
-
-</style>
->>>>>>> 3cd3d473f2b651339ca2243d0c26877d3cf4a497
