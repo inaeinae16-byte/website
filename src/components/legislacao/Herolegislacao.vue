@@ -14,7 +14,7 @@
       <div class="lado-esquerdo">
         <!-- anima SOMENTE no ícone -->
         <transition name="icone-fade" mode="out-in">
-          <Svg :key="secaoAtiva" :src="secaoAtual.icone" class="icone-secao" alt="Ícone da secção" />
+          <Svg :key="secaoAtiva" :name="secaoAtual.icone"  class="icone-secao"/>
         </transition>
 
         <h2 class="titulo-secao">{{ secaoAtiva }}</h2>
@@ -28,6 +28,10 @@
              <li v-for="(doc, index) in secaoAtual.documentos" :key="doc + index" class="item-documento" >
             <span class="icone-pdf"><Svg name="iconpdf" style="width: 30px;" /></span>
             {{ doc }}
+            <!-- Link para pdf -->
+               <a :href="doc.pdf" target="_blank" rel="noopener" class="link-documento" >
+                {{ doc.titulo }}
+                </a>
           </li>
         </transition-group>
       </div>
@@ -82,7 +86,7 @@
 
 /* LADO ESQUERDO */
 .lado-esquerdo {
-  background: var(--cor-verde);
+  background: var(--cor-branco);
   border-right: 1px solid #d8e4dc;
   display: flex;
   flex-direction: column;
@@ -164,7 +168,6 @@
 
 <script setup>
 import { ref, computed } from "vue";
-
 import Svg from '../../assets/Svg/Svgs.vue'
 
 /* SECÇÃO ATIVA */
@@ -183,7 +186,7 @@ const secoes = [
 /* CONTEÚDOS */
 const conteudos = {
   Comércio: {
-    icone: "",
+    icone: "iconcarinho-comercio",
     documentos: [
       "Regulamento obrigatoriedade da afixação dos preços",
       "Normas gerais do comércio",
@@ -191,33 +194,33 @@ const conteudos = {
     ],
   },
   Turismo: {
-    icone: "/icons/turismo.svg",
+    icone: "iconpdf",
     documentos: [
       "Licenciamento de empreendimentos turísticos",
       "Classificação hoteleira",
     ],
   },
   Desporto: {
-    icone: "/icons/desporto.svg",
+    icone: "iconpdf",
     documentos: [
       "Regulamento de eventos desportivos",
       "Normas de segurança",
     ],
   },
   Educação: {
-    icone: "/icons/educacao.svg",
+    icone: "iconpdf",
     documentos: [
       "Regulamento de instituições privadas",
     ],
   },
   Cultura: {
-    icone: "/icons/cultura.svg",
+    icone: "iconpdf",
     documentos: [
       "Proteção do património cultural",
     ],
   },
   Transversal: {
-    icone: "/icons/transversal.svg",
+    icone: "iconpdf",
     documentos: [
       "Normas gerais aplicáveis",
     ],
