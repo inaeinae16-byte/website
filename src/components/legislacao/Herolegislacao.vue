@@ -46,7 +46,7 @@
 
 .container-geral {
   max-width: 1200px;
-  margin:100px auto;
+  margin:30px auto;
 }
 
 /* ABAS */
@@ -82,19 +82,20 @@
   display: grid;
   grid-template-columns: 1fr 2fr;
   background: var(--cor-cinza);
-  border-radius:10px 10px  10px 10px ;
+  border-radius:0px 0px 20px 20px ;
   overflow: hidden;
 }
 
-/* LADO ESQUERDO */
+
 .lado-esquerdo {
   background: var(--cor-branco);
-  border-right: 1px solid #d8e4dc;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   padding: 40px 20px;
+  border: 2px solid #28782e;
+  border-radius:0px 0px 0px 20px ;
 }
 
 .icone-secao {
@@ -105,6 +106,7 @@
 .titulo-secao {
   font-size: var(--f5);
   font-family: semibold;
+  color: var(--cor-verde);
 }
 
 /* LADO DIREITO */
@@ -146,12 +148,12 @@
 
 /* ANIMAÇÃO DA LISTA */
 .lista-slide-enter-active {
-  transition: all 0.35s ease;
+  transition: all 0.59s ease;
 }
 
 .lista-slide-enter-from {
   opacity: 0;
-  transform: translateY(8px);
+  transform: translateY(5px);
 }
 
 .link-documento {
@@ -163,18 +165,92 @@
   font-size: var(--f3);
   font-family: semibold;
   width: 100%;
-  
-
+  transition: all .4s;
 }
 
-/* RESPONSIVO */
+.link-documento:hover {
+  margin-left: 10px;
+}
+
+/* =========================
+   RESPONSIVIDADE
+========================= */
+
+/* TABLET */
+@media (max-width: 1024px) {
+  .conteudo {
+    grid-template-columns: 1fr 1.5fr;
+  }
+
+  .lado-direito {
+    padding: 60px;
+  }
+
+  .icone-secao {
+    width: 80px;
+  }
+
+  .aba {
+    padding: 18px 40px;
+  }
+}
+
+/* MOBILE */
 @media (max-width: 768px) {
+
+  /* Abas com scroll horizontal */
+  .abas {
+    overflow-x: auto;
+    white-space: nowrap;
+    padding-bottom: 5px;
+  }
+
+  .aba {
+    flex: 0 0 auto;
+    padding: 15px 30px;
+    font-size: var(--f2);
+  }
+
+  /* Conteúdo em coluna */
   .conteudo {
     grid-template-columns: 1fr;
+    border-radius: 0px 0px 20px 20px;
   }
 
   .lado-esquerdo {
-    border-right: none;
+    border-radius: 0;
+    border-bottom: 2px solid #28782e;
+  }
+
+  .icone-secao {
+    width: 70px;
+  }
+
+  .titulo-secao {
+    font-size: var(--f4);
+  }
+
+  .lado-direito {
+    padding: 30px 20px;
+  }
+
+  .item-documento {
+    padding: 8px 0;
+  }
+
+  .link-documento {
+    font-size: var(--f2);
+  }
+}
+
+/* MOBILE PEQUENO */
+@media (max-width: 480px) {
+  .icone-secao {
+    width: 60px;
+  }
+
+  .lado-direito {
+    padding: 20px 15px;
   }
 }
 

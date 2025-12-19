@@ -6,14 +6,13 @@
 
 <style scoped>
 .titulo {
-    max-width: 1200px;
-    margin:100px auto;
+    margin:50px auto;
     text-align: center;
     margin-top: 100px;
 }
 .titulo h1 {
-    font-size: var(--f5);
-    color: var(--cor-verde);
-    font-family: semibold;
+    font-size: var(--f5);  
+    color: var(--cor-verde); 
+    font-family: ExtraBold;
 }
 </style>
