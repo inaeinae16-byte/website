@@ -14,7 +14,7 @@
         <li><router-link to="/sobre" active-class="active" exact @click="closeMenu">Sobre-Nós</router-link></li>
         <li><router-link to="/legislacao" active-class="active" exact @click="closeMenu">Legislação</router-link></li>
         <li><router-link to="/noticias" active-class="active" exact @click="closeMenu">Notícias</router-link></li>
-        <li><router-link to="/concursos" active-class="active" exact @click="closeMenu">Concursos</router-link></li>
+        <!-- <li><router-link to="/concursos" active-class="active" exact @click="closeMenu">Concursos</router-link></li> Ainda nao há conteudo pra aqui  -->
         <li><router-link to="/contacto" active-class="active" exact @click="closeMenu">Contacto</router-link></li>
       </ul>
     </nav>
@@ -43,7 +43,7 @@
         <li><router-link to="/sobre" active-class="active" exact @click="closeMenu">Sobre-Nós</router-link></li>
         <li><router-link to="/legislacao" active-class="active" exact @click="closeMenu">Legislação</router-link></li>
         <li><router-link to="/noticias" active-class="active" exact @click="closeMenu">Notícias</router-link></li>
-        <li><router-link to="/concursos" active-class="active" exact @click="closeMenu">Concursos</router-link></li>
+        <!-- <li><router-link to="/concursos" active-class="active" exact @click="closeMenu">Concursos</router-link></li> -->
         <li><router-link to="/contacto" active-class="active" exact @click="closeMenu">Contacto</router-link></li>
       </ul>
 
