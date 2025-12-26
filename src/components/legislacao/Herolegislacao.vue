@@ -172,10 +172,6 @@
   margin-left: 10px;
 }
 
-/* =========================
-   RESPONSIVIDADE
-========================= */
-
 /* TABLET */
 @media (max-width: 1024px) {
   .conteudo {
@@ -196,20 +192,47 @@
 }
 
 /* MOBILE */
-@media (max-width: 768px) {
+  @media (max-width: 768px) {
 
-  /* Abas com scroll horizontal */
+  /* Barra de abas */
   .abas {
+    display: flex;
+    gap: 10px;
+
     overflow-x: auto;
+    overflow-y: hidden;
+
     white-space: nowrap;
-    padding-bottom: 5px;
+    flex-wrap: nowrap;
+
+    padding: 6px 4px 10px 1px;
+    margin-bottom: 8px;
+
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE */
+    -webkit-overflow-scrolling: touch;
   }
 
+  /* Remove scrollbar visual */
+  .abas::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Abas individuais */
   .aba {
     flex: 0 0 auto;
-    padding: 15px 30px;
+
+    padding: 14px 32px;
     font-size: var(--f2);
+
+    border-radius: 12px 12px 0 0;
+
+    white-space: nowrap;
+    text-align: center;
   }
+
+
+
 
   /* Conteúdo em coluna */
   .conteudo {
@@ -549,4 +572,3 @@ const conteudos = {
 /* SECÇÃO ATUAL */
 const secaoAtual = computed(() => conteudos[secaoAtiva.value]);
 </script>
-

@@ -26,10 +26,10 @@
             v-for="(delegacao, index) in delegacoes"
             :key="index"
           >
-            <td>{{ delegacao.provincia }}</td>
-            <td>{{ delegacao.endereco }}</td>
-            <td>{{ delegacao.telefone }}</td>
-            <td>{{ delegacao.email }}</td>
+            <td date-label="Província">{{ delegacao.provincia }}</td>
+            <td date-label="Endereço">{{ delegacao.endereco }}</td>
+            <td date-label="Telefone">{{ delegacao.telefone }}</td>
+            <td date-label="E-mail">{{ delegacao.email }}</td>
           </tr>
         </transition-group>
 
@@ -129,6 +129,81 @@
   opacity: 0;
   transform: translateY(6px);
 }
+
+@media (max-width: 768px) {
+
+  /* Seção começa do topo */
+  .section-delegacoes {
+    margin-top: 30px;
+  }
+
+  /* Container centralizado */
+  .container-tabela {
+    overflow-x: hidden;
+    background: transparent;
+    box-shadow: none;
+    display: flex;
+    justify-content: center;
+  }
+
+  /* Remove cabeçalho */
+  .tabela-delegacoes thead {
+    display: none;
+  }
+
+  /* Estrutura em bloco */
+  .tabela-delegacoes,
+  .tabela-delegacoes tbody {
+    display: block;
+    width: 100%;
+  }
+
+  /* Card centralizado */
+  .tabela-delegacoes tr {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: var(--cor-branco);
+    width: 100%;
+    max-width: 420px;
+    margin: 0 auto 18px auto;
+    padding: 20px;
+    border-radius: 14px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  }
+
+  /* Linha do card */
+  .tabela-delegacoes td {
+    width: 100%;
+    text-align: center;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    padding: 10px 0;
+    border: none;
+    gap: 4px;
+  }
+
+  /* Label */
+  .tabela-delegacoes td::before {
+    content: attr(data-label);
+    font-family: semibold;
+    font-size: var(--f2);
+    color: var(--cor-cinza-escuro);
+  }
+
+  .cabesalho-delegacoes h2 {
+  font-size: var(--f4);
+  font-family: bold;
+  color: var(--cor-preto);
+}
+
+}
+
 
 
 

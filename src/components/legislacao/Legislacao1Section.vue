@@ -15,4 +15,10 @@
     color: var(--cor-verde); 
     font-family: ExtraBold;
 }
+
+@media (max-width: 768px) {
+    .titulo h1 {
+        font-size: var(--f3);
+    }
+}
 </style>

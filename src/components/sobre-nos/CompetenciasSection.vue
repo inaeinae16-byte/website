@@ -10,7 +10,7 @@
       >
         <button class="accordion-header" @click="toggle(index)">
           <span>{{ item.titulo }}</span>
-          <span class="icon">{{ activeIndex === index ? "−" : "+" }}</span>
+          <span class="icon">{{ activeIndex === index ? "+" : "*" }}</span>
         </button>
 
         <div

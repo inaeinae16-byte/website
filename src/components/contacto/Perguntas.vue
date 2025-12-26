@@ -120,6 +120,21 @@
   transform: translateY(-10px);
 }
 
+@media (max-width: 768px)  {
+ 
+  .pergunta-faq {
+    font-size: var(--f2);
+    padding: 25px 15px;
+  }
+
+  .resposta-faq {
+    font-size: var(--f2);
+  }
+
+  .cabesalho h2 {
+  font-size: var(--f9);
+}
+}
 </style>
 
 <script setup>
