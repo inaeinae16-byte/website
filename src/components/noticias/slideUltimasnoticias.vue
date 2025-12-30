@@ -444,7 +444,7 @@ onBeforeUnmount(() => {
   .btn-ver-noticia {
     font-size: var(--f3);
     padding: 10px;
-    gap: 100px;
+    gap: 70px;
   }
 
   .arawnoticia {
