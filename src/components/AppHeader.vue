@@ -48,7 +48,7 @@
       </ul>
 
       <!-- Botão de denúncia dentro do menu mobile -->
-      <button class="Buttondenuncia-mobile" @click="$router.push('/denuncia')">
+      <button class="Buttondenuncia-mobile" @click="() => { closeMenu(); $router.push('/denuncia') }">                                                                                                                                 
         <Svg name="denuncia" class="denuncia"/> Denuncia 
       </button>
     </div>

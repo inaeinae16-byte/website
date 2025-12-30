@@ -247,9 +247,9 @@ onBeforeUnmount(() => {
 
 .carrossel-noticias {
   display: flex;
-  gap: 24px;
+  gap: 15px;
   transition: transform 0.5s ease-in-out;
-  width: 100%;
+  width: 95%;
 }
 
 /*  CARD DE NOTÍCIA */
@@ -343,7 +343,6 @@ onBeforeUnmount(() => {
 }
 
 
-
 .btn-ver-noticia:hover svg {
   transform: translateX(4px);
 }
@@ -395,7 +394,7 @@ onBeforeUnmount(() => {
   }
   
   .carrossel-noticias {
-    gap: 16px;
+    gap: 5px;
   }
   
   .container-imagem {
@@ -421,7 +420,7 @@ onBeforeUnmount(() => {
   }
 
   .arawnoticia {
-    width: 40px;
+    width: 30px;
   }  
 }
 </style>

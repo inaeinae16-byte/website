@@ -24,7 +24,7 @@ h1{
  
 }
 
-@media (max-width: 500px) {
+@media (max-width: 720px) {
 
   .paragrafo {
     width: 100%;
@@ -34,7 +34,7 @@ h1{
 
   h1{
     font-size:var(--f5);
-    padding: 0 6px 10px;
+    padding: 0 3px;
     text-align: center;
   }
 }

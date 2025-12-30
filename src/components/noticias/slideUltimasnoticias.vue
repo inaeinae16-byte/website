@@ -117,7 +117,19 @@ const noticias = ref([
     imagem: new URL('@/assets/img-Noticas/image1.jpg', import.meta.url).href,
     titulo: 'INAE intensifica acções contra a venda ilegal de cigarros...',
     descricao: 'A Primeira-Ministra, Maria Benvinda, Levi Emposse Hoje A Juíza Desembargadora Shaquila Aboobacur Mohomed...'
-  }
+  },
+    {
+    id: 5,
+    imagem: new URL('@/assets/img-Noticas/image1.jpg', import.meta.url).href,
+    titulo: 'INAE intensifica acções contra a venda ilegal de cigarros...',
+    descricao: 'A Primeira-Ministra, Maria Benvinda, Levi Emposse Hoje A Juíza Desembargadora Shaquila Aboobacur Mohomed...'
+  },
+    {
+    id: 5,
+    imagem: new URL('@/assets/img-Noticas/image1.jpg', import.meta.url).href,
+    titulo: 'INAE intensifica acções contra a venda ilegal de cigarros...',
+    descricao: 'A Primeira-Ministra, Maria Benvinda, Levi Emposse Hoje A Juíza Desembargadora Shaquila Aboobacur Mohomed...'
+  },
  //Colocamos mas noticias
   
 ])
@@ -262,9 +274,9 @@ onBeforeUnmount(() => {
 
 .carrossel-noticias {
   display: flex;
-  gap: 24px;
+  gap: 14px;
   transition: transform 0.5s ease-in-out;
-  width: 100%;
+  width: 97%;
 }
 
 /*  CARD DE NOTÍCIA */
