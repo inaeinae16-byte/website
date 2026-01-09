@@ -1,133 +1,124 @@
 <template>
-  <section class="natureza-section">
-    <!-- Background escurecido -->
-    <div class="background">
-      <img src="../../assets/banner01.png" alt="" />
-    </div>
-
-    <!-- Conteúdo principal -->
-    <div class="content-wrapper">
-      <!-- Imagem à esquerda -->
-      <div class="image-box">
-        <img src="../../assets/banner01.png" alt="" />
+  <div class="container">
+    <h1 class="title">NATUREZA E ATRIBUIÇÃO</h1>
+    
+    <div class="content">
+      <div class="section">
+        <div class="icon-wrapper">
+        <Svg name="iconnatureza" class="icon" />
+        </div>
+        <h2 class="section-title">NATUREZA</h2>
+        <p class="section-text">
+          A Inspecção Nacional das Actividades Económicas,
+         abreviadamente designada por INAE, é uma instituição pública,
+          dotada de personalidade jurídica e autonomia administrativa. </p>
       </div>
 
-      <!-- Texto à direita -->
-      <div class="text-box">
-        <h2>Natureza</h2>
-        <p>
-          A Inspecção Nacional das Actividades Económicas, abreviadamente designada por INAE, é uma instituição pública, dotada de personalidade jurídica e autonomia administrativa
-        </p>
-        <h2>Atribuição</h2>
-        <p>
-          A INAE tem como atribuição a fiscalização do cumprimento da legislação reguladora do exercício das actividades económicas e a defesa do consumidor.
+      <div class="section">
+        <div class="icon-wrapper">
+          <Svg name="iconatribuicoes" class="icon" />
+        </div>
+        <h2 class="section-title">ATRIBUIÇÕES</h2>
+        <p class="section-text">
+          A INAE tem como atribuição a fiscalização do cumprimento da legislação reguladora do exercício das actividades económicas e a
+           defesa do consumidor.
         </p>
       </div>
     </div>
-  </section>
+  </div>
 </template>
 
-<script>
-
-import Svg from '../../assets/Svg/Svgs.vue'
-import { ref, onMounted, onBeforeUnmount } from 'vue'
-
-//As fotos
-const slides = ref([
-  {
-    image: new URL('@/assets/banner01.png', import.meta.url).href
-  },
-  {
-    image: new URL('@/assets/banner02.png', import.meta.url).href
-  },
-  {
-    image: new URL('@/assets/banner03.png', import.meta.url).href
-  }
-])
-
-
-export default {
-  name: "SectionNatureza",
-};
-</script>
-
 <style scoped>
-.natureza-section {
-  position: relative;
-  width: 100%;
-  min-height: 90vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-}
 
-/* Background */
-.background {
-  position: absolute;
-  inset: 0;
-  background-image: url('');
-  background-size: cover;
-  background-position: center;
-  filter: blur(4px) brightness(0.4);
-  z-index: 1;
-}
-
-/* Conteúdo sobreposto */
-.content-wrapper {
-  position: relative;
-  z-index: 2;
+.container {
+  background-color: #f5f5f502;
+  padding: 60px 40px;
+  min-height: 60vh;
   display: flex;
-  width: 90%;
-  max-width: 1200px;
-  gap: 40px;
-  padding: 40px 0;
+  flex-direction: column;
   align-items: center;
 }
 
-/* Imagem esquerda */
-.image-box {
-  flex: 1;
-}
-
-.image-box img {
-  width: 100%;
-  height: 380px;
-  object-fit: cover;
-  border-radius: 12px;
-  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.3);
-}
-
-/* Texto direita */
-.text-box {
-  flex: 1;
-  color: rgb(255, 255, 255);
-}
-
-.text-box h2 {
-  margin-bottom: 20px;
-  margin-bottom: 20px;
+.title {
+  color: var(--cor-verde);
   font-size: var(--f5);
   font-family: bold;
-  color: var(--cor-branco);
+  margin-bottom: 60px;
 }
 
-.text-box p {
-  font-size: 1.1rem;
-  line-height: 1.6;
-  margin-bottom: 12px;
-  font-family: Regular;
+.content {
+  display: flex;
+  gap: 280px;
+  max-width: 1200px;
+  width: 100%;
+  justify-content: center;
 }
 
-/* Responsivo */
-@media (max-width: 900px) {
-  .content-wrapper {
-    flex-direction: column;
-    text-align: center;
+.section {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 500px;
+}
+
+.icon-wrapper {
+  width: 90px;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.icon {
+  width: 100%;
+  animation: iconFloat 4s ease-in-out infinite;
+}
+
+@keyframes iconFloat {
+  0%, 100% {
+    transform: translateY(0);
   }
+  50% {
+    transform: translateY(-10px);
+  }
+}
 
-  .image-box img {
-    height: 260px;
+.section:nth-child(1) .icon {
+  animation-delay: 0s;
+}
+
+.section:nth-child(2) .icon {
+  animation-delay: 1.5s;
+}
+
+.section-title {
+  color: var(--cor-verde);
+  font-size: var(--f4);
+  font-family: semibold;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.section-text {
+  color: var(--cor-preta);
+  font-size: var(--f3);
+  font-family: Regular;
+  text-align: center;
+  line-height: 1.5;
+  letter-spacing: 0.1px;
+}
+
+@media (max-width: 768px) {
+  .content {
+    flex-direction: column;
+    gap: 50px;
+  }
+  
+  .title {
+    font-size: 24px;
   }
 }
 </style>
+
+<script setup>
+  import Svg from  '../../assets/Svg/Svgs.vue'
+</script>
