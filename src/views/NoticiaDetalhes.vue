@@ -31,7 +31,7 @@
 
         <!-- Texto -->
         <article class="card-texto">
-          <p>{{ noticia.descricao }}</p>
+          <p>{{ noticia.fullText || noticia.descricao }}</p>
         </article>
 
         <!-- Compartilhar -->

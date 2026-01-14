@@ -41,7 +41,7 @@
             <div class="conteudo-noticia">
               <h3 class="titulo-noticia">{{ noticia.titulo }}</h3>
               
-              <p class="descricao-noticia">{{ noticia.descricao }}</p>
+              <p class="descricao-noticia">{{ noticia.summary || noticia.descricao }}</p>
  
               <!-- Botão Ver Notícia Completa -->
               <button class="btn-ver-noticia" @click="verMais(noticia)">
