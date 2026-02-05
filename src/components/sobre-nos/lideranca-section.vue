@@ -4,6 +4,10 @@
     
     <!-- Título principal -->
     <h1 class="titulo-principal">NOSSA LIDERANÇA</h1>
+
+    <p class="paragrafo-principal">A INAE é dirigida por um Inspector-geral, e por um Inspector-geral Adjunto, ambos nomeados pelo Primeiro-ministro,
+       sob proposta do ministro que superintende a área de indústria e comércio. 
+      O mandato do Inspector-geral e Inspector-geral Adjunto é de cinco anos, renovável uma vez.</p>
     
     <!-- Grid de líderes -->
     <div class="lideres-grid">
@@ -47,7 +51,7 @@
 .lideranca-container {
   width: 100%;
   max-width: 1200px;
-  margin: 0 auto;
+  margin: 60px auto;
   padding: 40px 20px;
 
 }
@@ -60,11 +64,21 @@
   margin-bottom: 50px;
 }
 
+.paragrafo-principal {
+  text-align: center;
+  color: var(--cor-preto);
+  font-size: var(--f3);
+  font-family: semibold;
+  margin-bottom: 90px;
+  line-height: 200%;
+  padding: 0px 180px 0px 267px;
+}
+
 /* Grid responsivo para os cards */
 .lideres-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 40px;
+  gap: 60px;
   max-width: 1000px;
   margin: 0 auto;
 }
