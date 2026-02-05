@@ -6,8 +6,7 @@
     <div class="hero-content">
       <div class="hero-text">
         <h1 class="hero-title">
-          A Inspeção Nacional das Atividades Económicas (INAE) é o órgão do Estado responsável por fiscalizar e promover o <br>
-          cumprimento das normas que regulam a produção e a comercialização de bens e serviços em Moçambique. 
+         A Inspeção Nacional das Atividades Económicas (INAE) é o órgão do Estado responsável por fiscalizar e promover o cumprimento das normas que regulam a produção e a comercialização de bens e serviços em Moçambique. 
         </h1>
       </div>
    
@@ -16,37 +15,22 @@
 </template>
 
 <script setup>
-import banner from '@/assets/image 29.png'
+import banner from '@/assets/background inae.png'
 </script>
 
 <style scoped>
 .hero-banner {
   position: relative;
   width: 100%;
-  height: 400px;
+  height: calc(100% - 90px);
   overflow: hidden;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .hero-image {
   width: 100%;
   height: 100%;
   object-fit: cover;
-}
-
-.hero-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(
-    to bottom,
-    rgba(0, 0, 0, 0.3) 0%,
-    rgba(0, 0, 0, 0.5) 50%,
-    rgba(0, 0, 0, 0.7) 100%
-  );
-  z-index: 1;
+  background-repeat: no-repeat;
 }
 
 .hero-content {
@@ -66,15 +50,16 @@ import banner from '@/assets/image 29.png'
   flex: 1;
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 
 .hero-title {
-  color: white;
-  font-size: var(--f4);
- font-family: bold;
-  line-height: 1.6;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-  padding: 50px;
+    color: white;
+    font-size: var(--f4);
+    font-family: 'Regular';
+    line-height: 1.7;
+    padding: 0px 350px 0 350px;
+    text-align: center;
 }
 
 .hero-footer {
@@ -91,16 +76,16 @@ import banner from '@/assets/image 29.png'
 
 /* Responsivo */
 @media (max-width: 768px) {
-  .hero-banner {
-    height: 500px;
-  }
+
   
   .hero-content {
-    padding: 24px;
+    padding: 50px;
   }
   
   .hero-title {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
+    line-height: 1.5;
+    padding: 0px 50px 0 50px;
   }
   
   .hero-footer {
@@ -112,6 +97,7 @@ import banner from '@/assets/image 29.png'
   .footer-text {
     font-size: 0.85rem;
   }
+
 }
 
 @media (max-width: 480px) {

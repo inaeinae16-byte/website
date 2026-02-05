@@ -1,4 +1,4 @@
-<template>
+<template> 
   <div class="container">
     <h1 class="title">NATUREZA E ATRIBUIÇÃO</h1>
     
@@ -31,7 +31,7 @@
 <style scoped>
 
 .container {
-  background-color: #f5f5f502;
+  background-color: var(--cor-branca);
   padding: 60px 40px;
   min-height: 60vh;
   display: flex;
@@ -58,8 +58,10 @@
   flex: 1;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  max-width: 500px;
+  align-items: start;
+  border: 5px solid var(--cor-verde);
+  border-radius: 60px;
+  padding: 20px 40px;
 }
 
 .icon-wrapper {
@@ -93,16 +95,16 @@
 .section-title {
   color: var(--cor-verde);
   font-size: var(--f4);
-  font-family: semibold;
+  font-family: bold;
   text-align: center;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 }
 
 .section-text {
   color: var(--cor-preta);
   font-size: var(--f3);
-  font-family: Regular;
-  text-align: center;
+  font-family: semibold;
+  text-align: start;
   line-height: 1.5;
   letter-spacing: 0.1px;
 }
