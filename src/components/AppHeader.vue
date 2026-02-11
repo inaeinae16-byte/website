@@ -87,7 +87,7 @@ header {
   width: 100%;
   height: 60px;
   background-color: var(--cor-verde);
-  position: fixed;
+  position: sticky;
   top: 0;
   left: 0;
   z-index: 1000;
@@ -328,6 +328,7 @@ li a:hover{
 
 /* Smartphones grandes (iPhone 14 Pro Max, Galaxy S23, etc) */
 @media (max-width: 480px) {
+  
 
   .baselogo {
     width: 180px;
