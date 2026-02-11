@@ -382,7 +382,7 @@ textarea {
   import {  ref } from "vue";
   const isOpen = ref(false);
   const selectedText = ref("Selecione o assunto");
-  const selectedTextProvincia = ref ("Selecione a Provincia");
+  
  
   const toggleSelect = () => {
     isOpen.value = !isOpen.value
