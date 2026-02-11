@@ -274,6 +274,7 @@ li a:hover{
 }
 
 
+/* Tablets e telas médias */
 @media (max-width: 998px) {
   /* Esconde a navbar desktop */
   .navbar {
@@ -291,13 +292,290 @@ li a:hover{
   }
 }
 
+/* Tablets pequenos */
 @media (max-width: 768px) {
-  .hamburger-button {
-    display: flex;
-    margin-left: -25px;
+  .logo1 {
+    width: 35px;
+    height: 50px;
+    right: 180px;
   }
-} 
 
+  .hamburger-button {
+    width: 45px;
+    height: 45px;
+    margin-right: 15px;
+  }
+
+  .hamburger-line {
+    width: 40px;
+  }
+
+  .mobile-nav-links li {
+    padding: 14px 18px;
+  }
+
+  .mobile-nav-links li a {
+    font-size: 15px;
+  }
+
+  .Buttondenuncia-mobile {
+    width: calc(100% - 36px);
+    margin: 18px;
+    padding: 12px 18px;
+    font-size: 15px;
+  }
+}
+
+/* Smartphones grandes (iPhone 14 Pro Max, Galaxy S23, etc) */
+@media (max-width: 480px) {
+
+  .baselogo {
+    width: 180px;
+  }
+
+  .logo1 {
+    width: 32px;
+    height: 45px;
+    right: 145px;
+  }
+
+  .hamburger-button {
+    width: 42px;
+    height: 42px;
+    margin-right: 12px;
+    gap: 5px;
+  }
+
+  .hamburger-line {
+    width: 35px;
+  }
+
+  .hamburger-button.hamburger-active .hamburger-line:nth-child(1) {
+    transform: rotate(45deg) translateY(8px);
+    width: 35px;
+  }
+
+  .hamburger-button.hamburger-active .hamburger-line:nth-child(2) {
+    transform: rotate(-45deg) translateY(-22px);
+    width: 35px;
+  }
+
+  .mobile-menu {
+    top: 56px;
+    max-height: calc(100vh - 56px);
+  }
+
+  .mobile-nav-links li {
+    padding: 12px 16px;
+  }
+
+  .mobile-nav-links li a {
+    font-size: 14px;
+  }
+
+  .Buttondenuncia-mobile {
+    width: calc(100% - 32px);
+    margin: 16px;
+    padding: 11px 16px;
+    font-size: 14px;
+    gap: 6px;
+  }
+
+  .Buttondenuncia-mobile .denuncia {
+    width: 14px;
+  }
+}
+
+/* Smartphones médios (iPhone 13/14, Galaxy S21, etc) */
+@media (max-width: 390px) {
+
+  .baselogo {
+    width: 160px;
+  }
+
+  .logo1 {
+    width: 30px;
+    height: 42px;
+    right: 130px;
+  }
+
+  .hamburger-button {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+  }
+
+  .hamburger-line {
+    width: 32px;
+  }
+
+  .hamburger-button.hamburger-active .hamburger-line:nth-child(1) {
+    transform: rotate(45deg) translateY(7px);
+    width: 32px;
+  }
+
+  .hamburger-button.hamburger-active .hamburger-line:nth-child(2) {
+    transform: rotate(-45deg) translateY(-20px);
+    width: 32px;
+  }
+
+  .mobile-menu {
+    top: 54px;
+    max-height: calc(100vh - 54px);
+  }
+
+  .mobile-nav-links li {
+    padding: 11px 14px;
+  }
+
+  .mobile-nav-links li a {
+    font-size: 13px;
+  }
+
+  .Buttondenuncia-mobile {
+    width: calc(100% - 28px);
+    margin: 14px;
+    padding: 10px 14px;
+    font-size: 13px;
+  }
+}
+
+/* Smartphones pequenos (iPhone SE, Galaxy A series, etc) */
+@media (max-width: 360px) {
+
+ 
+  .logo1 {
+    width: 28px;
+    height: 40px;
+    right: 118px;
+  }
+
+  .hamburger-button {
+    width: 38px;
+    height: 38px;
+    margin-right: 8px;
+    gap: 4px;
+  }
+
+  .hamburger-line {
+    width: 30px;
+  }
+
+  .hamburger-button.hamburger-active .hamburger-line:nth-child(1) {
+    transform: rotate(45deg) translateY(6px);
+    width: 30px;
+  }
+
+  .hamburger-button.hamburger-active .hamburger-line:nth-child(2) {
+    transform: rotate(-45deg) translateY(-18px);
+    width: 30px;
+  }
+
+  .mobile-menu {
+    top: 52px;
+    max-height: calc(100vh - 52px);
+  }
+
+  .mobile-nav-links li {
+    padding: 10px 12px;
+  }
+
+  .mobile-nav-links li a {
+    font-size: 13px;
+    line-height: 1.4;
+  }
+
+  .Buttondenuncia-mobile {
+    width: calc(100% - 24px);
+    margin: 12px;
+    padding: 9px 12px;
+    font-size: 13px;
+    gap: 5px;
+  }
+
+  .Buttondenuncia-mobile .denuncia {
+    width: 13px;
+  }
+}
+
+/* Smartphones muito pequenos (iPhone S1st gen,E  etc) */
+@media (max-width: 320px) {
+ 
+
+  .baselogo {
+    width: 130px;
+    height: 100px;
+  }
+
+  .logo1 {
+    width: 26px;
+    height: 38px;
+    right: 105px;
+  }
+
+  .hamburger-button {
+    width: 36px;
+    height: 36px;
+    margin-right: 6px;
+  }
+
+  .hamburger-line {
+    width: 28px;
+  }
+
+  .hamburger-button.hamburger-active .hamburger-line:nth-child(1) {
+    transform: rotate(45deg) translateY(5px);
+    width: 28px;
+  }
+
+  .hamburger-button.hamburger-active .hamburger-line:nth-child(2) {
+    transform: rotate(-45deg) translateY(-16px);
+    width: 28px;
+  }
+
+  .mobile-menu {
+    top: 50px;
+    max-height: calc(100vh - 50px);
+  }
+
+  .mobile-nav-links li {
+    padding: 9px 10px;
+  }
+
+  .mobile-nav-links li a {
+    font-size: 12px;
+    line-height: 1.3;
+  }
+
+  .Buttondenuncia-mobile {
+    width: calc(100% - 20px);
+    margin: 10px;
+    padding: 8px 10px;
+    font-size: 12px;
+    gap: 4px;
+  }
+
+  .Buttondenuncia-mobile .denuncia {
+    width: 12px;
+  }
+}
+
+/* Landscape mode para smartphones */
+@media (max-height: 500px) and (orientation: landscape) {
+  .mobile-menu {
+    max-height: calc(100vh - 50px);
+    overflow-y: auto;
+  }
+
+  .mobile-nav-links li {
+    padding: 8px 15px;
+  }
+
+  .Buttondenuncia-mobile {
+    margin: 10px 20px;
+    padding: 8px 15px;
+  }
+}
 
 
 

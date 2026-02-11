@@ -394,11 +394,11 @@ onBeforeUnmount(() => {
   }
   
   .carrossel-noticias {
-    gap: 5px;
+    gap: 10px;
   }
   
   .container-imagem {
-    height: 180px;
+    height: 200px;
   }
   
   .conteudo-noticia {
@@ -420,7 +420,7 @@ onBeforeUnmount(() => {
   }
 
   .arawnoticia {
-    width: 40px;
+    width: 30px;
   }  
 }
 </style>

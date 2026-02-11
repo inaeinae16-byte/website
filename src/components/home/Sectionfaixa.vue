@@ -30,11 +30,12 @@ h1{
     width: 100%;
     height: 200px;
     margin-bottom: 50px;
+    margin-top: 40px;
   }
 
   h1{
     font-size:var(--f5);
-    padding: 0 3px;
+    padding: 0 0 2px 2px ;
     text-align: center;
   }
 }

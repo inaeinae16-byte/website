@@ -186,6 +186,13 @@
   .cabesalho h2 {
   font-size: var(--f9);
 }
+
+.button-0rgonogrma{
+  width: 100%;
+  max-width: 300px;
+  padding: 20px 0px 20px 0px;
+}
+
 }
 </style>
 

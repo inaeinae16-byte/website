@@ -153,6 +153,10 @@
   .imagem-container {
     height: 250px;
   }
+ 
+  .paragrafo-principal{
+   padding: 0px 15px 0px 15px;
+  }
 }
 
 /* Responsividade para mobile */
