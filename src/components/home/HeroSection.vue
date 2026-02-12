@@ -40,13 +40,13 @@ import { ref, onMounted, onBeforeUnmount } from 'vue'
 //As fotos
 const slides = ref([
   {
+    image: new URL('@/assets/banner04.png', import.meta.url).href
+  },
+  {
     image: new URL('@/assets/banner01.png', import.meta.url).href
   },
   {
-    image: new URL('@/assets/banner02.png', import.meta.url).href
-  },
-  {
-    image: new URL('@/assets/banner03.png', import.meta.url).href
+    image: new URL('@/assets/banner04.png', import.meta.url).href
   }
 ])
 
