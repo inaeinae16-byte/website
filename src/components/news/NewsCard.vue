@@ -1,6 +1,6 @@
 <template>
   <article class="news-card" @click="$router.push('/noticias/' + noticia.id)">
-    <img :src="noticia.imagem" :alt="noticia.titulo" />
+    <img :src="imagemPrincipal" :alt="noticia.titulo" />
     <div class="content">
       <span class="category">{{ noticia.categoria }}</span>
       <h3>{{ noticia.titulo }}</h3>
@@ -11,13 +11,19 @@
 </template>
 
 <script setup>
-import { defineProps } from 'vue'
+import { defineProps, computed } from 'vue'
 
-defineProps({
+const props = defineProps({
   noticia: {
     type: Object,
     required: true
   }
+})
+
+// Compatibilidade: funciona com imagem singular ou array de imagens
+const imagemPrincipal = computed(() => {
+  if (!props.noticia) return ''
+  return props.noticia.imagens?.[0] || props.noticia.imagem || ''
 })
 
 const formatDate = (d) => new Date(d).toLocaleDateString('pt-MZ')

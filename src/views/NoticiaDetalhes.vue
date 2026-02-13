@@ -1,16 +1,60 @@
 <template>
   <div class="noticia-page">
     <div v-if="noticia" class="noticia-card">
-     <!-- Imagem -->
-      <div class="card-imagem" @click="abrirImagem">
-        <img :src="noticia.imagem" :alt="noticia.titulo" />
+     <!-- CARROSSEL DE IMAGENS -->
+      <div class="carousel-container" @mouseenter="pausarAutoplay" @mouseleave="iniciarAutoplay">
+        <!-- Imagem Principal -->
+        <div class="carousel-main">
+          <transition name="fade" mode="out-in">
+            <img 
+              :key="imagemAtual"
+              :src="imagensAtuais[imagemAtual]"
+              :alt="`${noticia.titulo} - Imagem ${imagemAtual + 1}`"
+              @click="abrirImagem"
+              class="carousel-image"
+            />
+          </transition>
+
+          <!-- Controle Anterior -->
+          <button v-if="imagensAtuais.length > 1" class="carousel-btn carousel-prev" @click="imagemAnterior">
+            <Svg name="setanoticiaesquerda" />
+          </button>
+
+          <!-- Controle Próximo -->
+          <button v-if="imagensAtuais.length > 1" class="carousel-btn carousel-next" @click="proximaImagem">
+            <Svg name="setanoticia" />
+          </button>
+
+          <!-- Indicador de Imagem -->
+          <div v-if="imagensAtuais.length > 1" class="carousel-info">
+            <span>{{ imagemAtual + 1 }} / {{ imagensAtuais.length }}</span>
+          </div>
+        </div>
+
+        <!-- Pontos Indicadores -->
+        <div v-if="imagensAtuais.length > 1" class="carousel-dots">
+          <button
+            v-for="(_, index) in imagensAtuais"
+            :key="index"
+            class="dot"
+            :class="{ active: index === imagemAtual }"
+            @click="irParaImagem(index)"
+          ></button>
+        </div>
       </div>
 
-      <!-- MODAL IMAGEM -->
-            <div v-if="imagemAberta" class="imagem-modal" @click.self="fecharImagem">
-              <button class="modal-fechar" @click="fecharImagem">✕</button>
-              <img :src="noticia.imagem" :alt="noticia.titulo" class="imagem-modal-conteudo" />
-            </div>
+      <!-- MODAL IMAGEM - EXPANDIDA -->
+      <transition name="modal-fade">
+        <div v-if="imagemAberta" class="imagem-modal" @click.self="fecharImagem">
+          <button class="modal-fechar" @click="fecharImagem">✕</button>
+          <div class="modal-content">
+            <button class="modal-prev" @click="imagemAnteriorModal">❮</button>
+            <img :src="imagensAtuais[imagemAtual]" :alt="noticia.titulo" class="imagem-modal-conteudo" />
+            <button class="modal-next" @click="proximaImagemModal">❯</button>
+          </div>
+          <div class="modal-indicator">{{ imagemAtual + 1 }} / {{ imagensAtuais.length }}</div>
+        </div>
+      </transition>
 
       <!-- Conteúdo -->
       <div class="card-conteudo">
@@ -74,12 +118,22 @@
 
 
 <script setup>
-import { ref, onMounted } from 'vue'
+import { ref, onMounted, computed, onUnmounted } from 'vue'
 import { useRouter } from 'vue-router'
 import Svg from '../assets/Svg/Svgs.vue'
 
 const router = useRouter()
 const noticia = ref(null)
+const imagemAtual = ref(0)
+const imagemAberta = ref(false)
+const autoplayAtivo = ref(true)
+let autoplayInterval = null
+
+// Retorna o array de imagens (com fallback para compatibilidade)
+const imagensAtuais = computed(() => {
+  if (!noticia.value) return []
+  return noticia.value.imagens || (noticia.value.imagem ? [noticia.value.imagem] : [])
+})
 
 onMounted(() => {
   try {
@@ -96,7 +150,76 @@ onMounted(() => {
   } catch (e) {
     noticia.value = null
   }
+
+  // Iniciar autoplay
+  iniciarAutoplay()
 })
+
+onUnmounted(() => {
+  pararAutoplay()
+})
+
+// FUNÇÕES DE CARROSSEL
+const proximaImagem = () => {
+  imagemAtual.value = (imagemAtual.value + 1) % imagensAtuais.value.length
+  resetarAutoplay()
+}
+
+const imagemAnterior = () => {
+  imagemAtual.value = (imagemAtual.value - 1 + imagensAtuais.value.length) % imagensAtuais.value.length
+  resetarAutoplay()
+}
+
+const irParaImagem = (index) => {
+  imagemAtual.value = index
+  resetarAutoplay()
+}
+
+const proximaImagemModal = () => {
+  proximaImagem()
+}
+
+const imagemAnteriorModal = () => {
+  imagemAnterior()
+}
+
+// FUNÇÕES DE AUTOPLAY
+const iniciarAutoplay = () => {
+  if (!autoplayAtivo.value || imagensAtuais.value.length <= 1) return
+  
+  pararAutoplay()
+  autoplayInterval = setInterval(() => {
+    imagemAtual.value = (imagemAtual.value + 1) % imagensAtuais.value.length
+  }, 5000) // Muda a imagem a cada 5 segundos
+}
+
+const pararAutoplay = () => {
+  if (autoplayInterval) {
+    clearInterval(autoplayInterval)
+    autoplayInterval = null
+  }
+}
+
+const pausarAutoplay = () => {
+  pararAutoplay()
+}
+
+const resetarAutoplay = () => {
+  iniciarAutoplay()
+}
+
+// MODAL
+const abrirImagem = () => {
+  imagemAberta.value = true
+  document.body.style.overflow = 'hidden'
+  pararAutoplay()
+}
+
+const fecharImagem = () => {
+  imagemAberta.value = false
+  document.body.style.overflow = ''
+  iniciarAutoplay()
+}
 
 const voltar = () => {
   router.push({ name: 'NoticiasPage' })
@@ -118,7 +241,6 @@ const compartilhar = (rede) => {
       shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${url}`
       break
     case 'instagram':
-      // Instagram não suporta compartilhamento direto via URL, então copiamos o link
       navigator.clipboard.writeText(window.location.href)
       alert('Link copiado! Cole no Instagram.')
       return
@@ -130,18 +252,6 @@ const compartilhar = (rede) => {
   if (shareUrl) {
     window.open(shareUrl, '_blank', 'width=600,height=400')
   }
-}
-//Clicar na imagem para ampliar
-const imagemAberta = ref(false)
-
-const abrirImagem = () => {
-  imagemAberta.value = true
-  document.body.style.overflow = 'hidden'
-}
-
-const fecharImagem = () => {
-  imagemAberta.value = false
-  document.body.style.overflow = ''
 }
 </script>
 
@@ -162,12 +272,229 @@ const fecharImagem = () => {
   box-shadow: 0 10px 30px rgba(8, 4, 4, 0.20);
 }
 
-/* IMAGEM */
-.card-imagem img {
+/*  CARROSSEL */
+.carousel-container {
+  position: relative;
+  width: 100%;
+  background: var(--cor-cinza);
+}
+
+.carousel-main {
+  position: relative;
   width: 100%;
   height: 650px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.carousel-image {
+  width: 100%;
+  height: 100%;
   object-fit: cover;
-  display: block;
+  cursor: zoom-in;
+  transition: filter 0.3s ease;
+}
+
+.carousel-image:hover {
+  filter: brightness(1.05);
+}
+
+/* BOTÕES DE NAVEGAÇÃO */
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(63, 55, 55, 0.25);
+  border: none;
+  font-size: var(--f4);
+  width: 60px;
+  height: 60px;
+  border-radius: 20%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(8px);
+}
+
+.carousel-btn:hover {
+  background: rgba(255, 255, 255, 0.45);
+  transform: translateY(-50%) scale(1.1);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.carousel-prev {
+  left: 20px;
+}
+
+.carousel-next {
+  right: 20px;
+}
+
+/* INDICADOR DE IMAGEM ATUAL */
+.carousel-info {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  background: rgba(0, 0, 0, 0.5);
+  color: var(--cor-branco);
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: var(--f2);
+  font-family: bold;
+  backdrop-filter: blur(8px);
+  z-index: 10;
+}
+
+/* PONTOS INDICADORES */
+.carousel-dots {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+  z-index: 10;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255, 255, 255, 0.4);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.dot:hover {
+  background: rgba(255, 255, 255, 0.7);
+  transform: scale(1.2);
+}
+
+.dot.active {
+  width: 32px;
+  border-radius: 6px;
+  background: var(--cor-verde);
+}
+
+/*  MODAL IMAGEM  */
+.imagem-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.95);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  padding: 20px;
+  backdrop-filter: blur(5px);
+}
+
+.modal-content {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 90vw;
+}
+
+.imagem-modal-conteudo {
+  max-width: 100%;
+  max-height: 85vh;
+  object-fit: contain;
+  border-radius: 8px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8);
+  animation: zoomIn 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes zoomIn {
+  from {
+    opacity: 0;
+    transform: scale(0.85);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* BOTÕES NO MODAL */
+.modal-prev,
+.modal-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  font-size: 40px;
+  width: 70px;
+  height: 70px;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(8px);
+  z-index: 10001;
+}
+
+
+
+.modal-prev:hover,
+.modal-next:hover {
+  background: rgba(255, 255, 255, 0.35);
+  transform: translateY(-50%) scale(1.15);
+  box-shadow: 0 10px 30px rgba(255, 255, 255, 0.2);
+}
+
+.modal-prev {
+  left: -90px;
+}
+
+.modal-next {
+  right: -90px;
+}
+
+/* BOTÃO FECHAR */
+.modal-fechar {
+  position: absolute;
+  top: -60px;
+  right: 0;
+  background: transparent;
+  border: none;
+  color: #ffffff;
+  font-size: 40px;
+  cursor: pointer;
+  line-height: 1;
+  transition: all 0.2s ease;
+  z-index: 10002;
+}
+
+.modal-fechar:hover {
+  transform: scale(1.2) rotate(90deg);
+  opacity: 0.8;
+}
+
+/* INDICADOR NO MODAL */
+.modal-indicator {
+  position: absolute;
+  bottom: -50px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(255, 255, 255, 0.15);
+  color: white;
+  padding: 10px 20px;
+  border-radius: 20px;
+  font-size: 15px;
+  font-weight: 600;
+  backdrop-filter: blur(8px);
 }
 
 /* CONTEÚDO */
@@ -248,7 +575,6 @@ svg {
 .whatsapp {
   border: 2px solid #25d366; 
   background: var(--cor-branco);
- 
 }
 
 .facebook {
@@ -264,7 +590,6 @@ svg {
 .linkedin {
   border: 2px solid #0a66c2;
   background: var(--cor-branco);
- 
 }
 
 /* BOTÃO OFICIAL */
@@ -282,56 +607,86 @@ svg {
   font-family: semibold;
 }
 
-/* MODAL IMAGEM */
-.imagem-modal {
-  position: fixed;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.85);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 9999;
-  padding: 20px;
+/* TRANSIÇÕES */
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* IMAGEM NO MODAL */
-.imagem-modal-conteudo {
-  max-width: 95%;
-  max-height: 90vh;
-  object-fit: contain;
-  border-radius: 6px;
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
 }
 
-/* BOTÃO FECHAR */
-.modal-fechar {
-  position: absolute;
-  top: 20px;
-  right: 24px;
-  background: transparent;
-  border: none;
-  color: #ffffff;
-  font-size: 32px;
-  cursor: pointer;
-  line-height: 1;
-  transition: transform 0.2s ease, opacity 0.2s ease;
+.fade-enter-to,
+.fade-leave-from {
+  opacity: 1;
 }
 
-.modal-fechar:hover {
-  transform: scale(1.15);
-  opacity: 0.8;
+.modal-fade-enter-active,
+.modal-fade-leave-active {
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* CURSOR NA IMAGEM */
-.card-imagem {
-  cursor: zoom-in;
+.modal-fade-enter-from,
+.modal-fade-leave-to {
+  opacity: 0;
+  backdrop-filter: blur(0px);
 }
 
+.modal-fade-enter-to,
+.modal-fade-leave-from {
+  opacity: 1;
+  backdrop-filter: blur(5px);
+}
+
+/* SEM DADO */
+.sem-dado {
+  text-align: center;
+  padding: 60px 20px;
+  color: var(--cor-preta);
+}
 
 /* RESPONSIVO */
 @media (max-width: 768px) {
-  .card-imagem img {
-    height: 260px;
+  .carousel-main {
+    height: 300px;
+  }
+
+  .carousel-btn {
+    width: 45px;
+    height: 45px;
+    font-size: 24px;
+  }
+
+  .carousel-prev {
+    left: 10px;
+  }
+
+  .carousel-next {
+    right: 10px;
+  }
+
+  .modal-prev,
+  .modal-next {
+    width: 50px;
+    height: 50px;
+    font-size: 24px;
+  }
+
+  .modal-prev {
+    left: 10px;
+    position: relative;
+  }
+
+  .modal-next {
+    right: 10px;
+    position: relative;
+  }
+
+  .modal-fechar {
+    top: 10px;
+    right: 10px;
   }
 
   .card-conteudo {
@@ -341,6 +696,18 @@ svg {
   .card-titulo {
     font-size: 1.5rem;
   }
-}
 
+  .carousel-dots {
+    gap: 8px;
+  }
+
+  .dot {
+    width: 10px;
+    height: 10px;
+  }
+
+  .dot.active {
+    width: 28px;
+  }
+}
 </style>

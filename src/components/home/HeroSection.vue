@@ -168,7 +168,7 @@ onBeforeUnmount(() => {
   gap: 1rem;
   z-index: 3;
 }
-
+ 
 .dots span {
   width: 10px;
   height: 10px;

@@ -49,13 +49,13 @@
         <!-- Informações de contato -->
         <div class="footer-contact">
           <p class="contact-label">Contacto</p>
-          <p class="contact-phone">+258 85 000 2020</p>
+          <p class="contact-phone">1464</p>
         </div>
 
         <!-- Email institucional -->
         <div class="footer-email">
           <p class="email-label">E-Mail / Seg. A Sex. Das 8h Às 15h</p>
-          <p class="email-address">inaeinae16@gmail.com</p>
+          <p class="email-address">secretaria@inae.gov.mz</p>
         </div>
 
         <!-- Redes sociais -->

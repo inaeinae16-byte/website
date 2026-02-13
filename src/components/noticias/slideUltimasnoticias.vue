@@ -31,7 +31,7 @@
             <!-- Imagens de noticias encapsula todas as imagens-->
             <div class="container-imagem">
               <img 
-                :src="noticia.imagem" 
+                :src="noticia.imagens?.[0] || noticia.imagem" 
                 :alt="noticia.titulo"
                 class="imagem-noticia"
               />
