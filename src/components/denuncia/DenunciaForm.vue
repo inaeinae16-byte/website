@@ -39,27 +39,27 @@
 
         <fieldset>
           <legend>Província<span class="obrigatorio">*</span></legend>
-          <!-- <div class="select-wrapper">
-            <select id="provincia">
-              <option value="">Selecione a Província</option>
-              <option value="maputo">Maputo</option>
-              <option value="gaza">Gaza</option>
-              <option value="inhambane">Inhambane</option>
-              <option value="sofala">Sofala</option>
-              <option value="manica">Manica</option>
-              <option value="tete">Tete</option>
-              <option value="zambezia">Zambézia</option>
-              <option value="nampula">Nampula</option>
-              <option value="cabo-delgado">Cabo Delgado</option>
-              <option value="niassa">Niassa</option>
-            </select>
-          </div> -->
-           <div class="select_option">
+          <div class="select-wrapper">
+            <div class="customizar_select" @click="toggleSelectProvincia">
+              <div class="select_option">
                 {{ selectedTextProvincia }}
-
-                <span :class="['arrow', { open: isOpen }]"></span>
-
+                <span :class="['arrow', { open: isOpenProvincia }]"></span>
               </div>
+
+              <ul v-if="isOpenProvincia" class="options">
+                <li @click.stop="selectOptionProvincia('Maputo')" class="option">Maputo</li>
+                <li @click.stop="selectOptionProvincia('Gaza')" class="option">Gaza</li>
+                <li @click.stop="selectOptionProvincia('Inhambane')" class="option">Inhambane</li>
+                <li @click.stop="selectOptionProvincia('Sofala')" class="option">Sofala</li>
+                <li @click.stop="selectOptionProvincia('Manica')" class="option">Manica</li>
+                <li @click.stop="selectOptionProvincia('Tete')" class="option">Tete</li>
+                <li @click.stop="selectOptionProvincia('Zambézia')" class="option">Zambézia</li>
+                <li @click.stop="selectOptionProvincia('Nampula')" class="option">Nampula</li>
+                <li @click.stop="selectOptionProvincia('Cabo Delgado')" class="option">Cabo Delgado</li>
+                <li @click.stop="selectOptionProvincia('Niassa')" class="option">Niassa</li>
+              </ul>
+            </div>
+          </div>
         </fieldset>  
 
         <fieldset>
@@ -91,20 +91,20 @@
               <option value="outro">Outro</option>
             </select> -->
 
-            <div class="customizar_select" @click="toggleSelect">
+            <div class="customizar_select" @click="toggleSelectAssunto">
               <div class="select_option">
                 {{ selectedText }}
 
-                <span :class="['arrow', { open: isOpen }]"></span>
+                <span :class="['arrow', { open: isOpenAssunto }]"></span>
 
               </div>
 
-              <ul v-if="isOpen" class="options">
-                <li @click.stop="selectoption('Preço abusivo')" class="option">Preço abusivo</li>
-                <li @click.stop="selectoption('Má qualidade')" class="option">Má qualidade</li>
-                <li @click.stop="selectoption('Mau atendimento')" class="option">Mau atendimento</li>
-                <li @click.stop="selectoption('Falta de higiene')" class="option">Falta de higiene</li>
-                <li @click.stop="selectoption('Outro')" class="option">Outro</li>
+              <ul v-if="isOpenAssunto" class="options">
+                <li @click.stop="selectOption('Preço abusivo')" class="option">Preço abusivo</li>
+                <li @click.stop="selectOption('Má qualidade')" class="option">Má qualidade</li>
+                <li @click.stop="selectOption('Mau atendimento')" class="option">Mau atendimento</li>
+                <li @click.stop="selectOption('Falta de higiene')" class="option">Falta de higiene</li>
+                <li @click.stop="selectOption('Outro')" class="option">Outro</li>
               </ul>
             </div>
           </div>
@@ -113,11 +113,25 @@
         <fieldset class="campo-evidencias">
           <legend>Evidências <span class="obrigatorio">*</span></legend>
           <div class="file-input-wrapper">
-            <input type="file" id="evidencias" accept="image/*,video/*,.pdf">
+            <input type="file" id="evidencias" accept="image/*,video/*,.pdf" @change="handleFileUpload" multiple>
             <label for="evidencias">
               <span class="file-placeholder">Suba a evidência</span>
               <span class="file-icon"> <Svg name="iconfile" class="iconfile"/> </span>
             </label>
+          </div>
+          <div v-if="selectedFiles.length > 0" class="cards-container">
+            <div v-for="(file, index) in selectedFiles" :key="index" class="card-preview" @click="removeFileByIndex(index)">
+              <img v-if="file.type.startsWith('image/')" :src="file.preview" alt="Preview" class="card-image">
+              <video v-else-if="file.type.startsWith('video/')" :src="file.preview" class="card-video"></video>
+              <div v-else-if="file.type === 'application/pdf'" class="card-pdf">
+                <!-- <span class="card-pdf-icon">PDF</span> -->
+                 <Svg name="iconpdf" class="card-pdf-icon"/>
+              </div>
+              <div class="card-remove-overlay">
+                <!-- <span class="card-remove-icon">×</span> -->
+                 <Svg name="iconX" class="card-remove-icon"/>
+              </div>
+            </div>
           </div>
         </fieldset>
       </div>
@@ -212,6 +226,7 @@ fieldset {
   padding: 2px 0px 10px 20px;
   position: relative;
   transition: all 0.3s ease;
+  align-self: start;
 }
 
 fieldset:focus-within {
@@ -257,11 +272,6 @@ input:focus,
 select:focus,
 textarea:focus {
   outline: none;
-}
-
-/* Select customizado */
-.select-wrapper {
-  
 }
 
 .customizar_select {
@@ -372,6 +382,70 @@ select option {
   right: 20px;
 }
 
+/* Cards de evidências */
+.cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.card-preview {
+  position: relative;
+  width: 50px;
+  height: 50px;
+  border-radius: 8px;
+  overflow: hidden;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: transform 0.2s ease;
+}
+
+.card-preview:hover {
+  transform: scale(1.05);
+}
+
+.card-image,
+.card-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.card-pdf {
+  width: 100%;
+  height: 100%;
+  background-color: var(--cor-branco);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+
+.card-remove-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.card-preview:hover .card-remove-overlay {
+  opacity: 1;
+}
+
+.card-remove-icon {
+ width: 25px;
+ fill: var(--cor-branco);
+}
+
 /* Textarea */
 textarea {
   resize: none;
@@ -460,16 +534,49 @@ textarea {
   import Svg from '../../assets/Svg/Svgs.vue'
 
   import {  ref } from "vue";
-  const isOpen = ref(false);
+  const isOpenAssunto = ref(false);
+  const isOpenProvincia = ref(false);
   const selectedText = ref("Selecione o assunto");
   const selectedTextProvincia = ref ("Selecione a Provincia");
+  const selectedFiles = ref([]);
  
-  const toggleSelect = () => {
-    isOpen.value = !isOpen.value
+  const toggleSelectAssunto = () => {
+    isOpenAssunto.value = !isOpenAssunto.value
   };
 
-  const selectoption = (texto) => {
+  const toggleSelectProvincia = () => {
+    isOpenProvincia.value = !isOpenProvincia.value
+  };
+
+  const selectOption = (texto) => {
     selectedText.value = texto;
-    isOpen.value = false
+    isOpenAssunto.value = false
+  };
+
+  const selectOptionProvincia = (provincia) => {
+    selectedTextProvincia.value = provincia;
+    isOpenProvincia.value = false
+  };
+
+  const handleFileUpload = (event) => {
+    const files = event.target.files;
+    if (files) {
+      for (let i = 0; i < files.length; i++) {
+        const file = files[i];
+        const reader = new FileReader();
+        reader.onload = (e) => {
+          selectedFiles.value.push({
+            type: file.type,
+            name: file.name,
+            preview: e.target.result
+          });
+        };
+        reader.readAsDataURL(file);
+      }
+    }
+  };
+
+  const removeFileByIndex = (index) => {
+    selectedFiles.value.splice(index, 1);
   };
 </script>
